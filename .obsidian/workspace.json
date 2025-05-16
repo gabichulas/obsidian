@@ -166,7 +166,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,8 +181,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6d9ed0c131f091e8",
+  "active": "d51b6d4a311ac42a",
   "lastOpenFiles": [
+    "300 Facultad/Materias/DB.md",
     "100 Index/Sin título.md",
     "600 Libros/Notas/15-05-2025 📚 El Camino de los Reyes.md",
     "2025-05-15.md",
@@ -193,7 +195,6 @@
     "600 Libros",
     "200 Material",
     "500 Proyectos",
-    "300 Facultad/Materias/DB.md",
     "Sin título 1.md",
     "Sin título.md",
     "200 Facultad/Materias/DB",
