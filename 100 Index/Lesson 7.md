@@ -53,3 +53,59 @@ train('convnext_small_in22k', 128, epochs=1, accum=4, finetune=False)
 ![[Pasted image 20250516162325.png]]
 
 Bajamos el consumo de VRAM a prácticamente la mitad.
+
+PD: Esto ya está implementado y optimizado, no es necesario hacerlo manualmente :)
+
+---
+
+# Multi-target models
+
+Ya vimos cómo desarrollar un modelo que prediga *la* categoría de una imágen, pero nos interesa saber si podemos crear uno capaz de predecir más de una categoría.
+
+Tomaremos como ejemplo el dataset de una [competencia](https://www.kaggle.com/competitions/paddy-disease-classification) de **Kaggle**. Los datos se ven así:
+
+| image_id     | label                     | variety | age |
+|--------------|---------------------------|---------|-----|
+| 100330.jpg   | bacterial_leaf_blight     | ADT45   | 45  |
+| 100365.jpg   | bacterial_leaf_blight     | ADT45   | 45  |
+| 100382.jpg   | bacterial_leaf_blight     | ADT45   | 45  |
+| 100632.jpg   | bacterial_leaf_blight     | ADT45   | 45  |
+| 101918.jpg   | bacterial_leaf_blight     | ADT45   | 45  |
+
+Suponiendo que ya creamos las funciones necesarias e importamos los datos:
+
+```python
+dls = DataBlock(
+    blocks=(ImageBlock,CategoryBlock,CategoryBlock),
+    n_inp=1,
+    get_items=get_image_files,
+    get_y = [parent_label,get_variety],
+    splitter=RandomSplitter(0.2, seed=42),
+    item_tfms=Resize(192, method='squish'),
+    batch_tfms=aug_transforms(size=128, min_scale=0.75)
+).dataloaders(trn_path)
+```
+
+Donde:
+
+```python
+n_inp=1,
+```
+
+indica el número de inputs que tendrá el modelo, es decir, el input es `ImageBlock`;
+
+```python
+get_y = [parent_label,get_variety],
+```
+
+ahora *y* no es una columna, ya que tenemos dos objetivos. `parent_label` es una función de fastai que devuelve el nombre de la carpeta que contiene a la imágen, es decir, la categoría (en este caso, la enfermedad de la planta). `get_variety` devuelve la especie de la planta. 
+
+
+Luego, visualizamos un batch:
+
+```python
+dls.show_batch(max_n=6)
+```
+
+![[Pasted image 20250516175240.png]]
+
