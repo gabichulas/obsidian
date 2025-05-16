@@ -2,5 +2,6 @@
   "promptDelete": false,
   "alwaysUpdateLinks": true,
   "newFileLocation": "folder",
-  "newFileFolderPath": "100 Index"
+  "newFileFolderPath": "100 Index",
+  "spellcheck": false
 }
