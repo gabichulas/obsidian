@@ -3,5 +3,6 @@
   "alwaysUpdateLinks": true,
   "newFileLocation": "folder",
   "newFileFolderPath": "100 Index",
-  "spellcheck": false
+  "spellcheck": false,
+  "attachmentFolderPath": "img"
 }

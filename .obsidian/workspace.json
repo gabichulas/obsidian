@@ -27,13 +27,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plantillas/Clase.md",
-                "mode": "preview",
+                "file": "100 Index/Lesson 7.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Clase"
+              "title": "Lesson 7"
             }
           }
         ],
@@ -196,13 +196,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "77e8742cca28ef6e",
+  "active": "0b76fa412430bd01",
   "lastOpenFiles": [
-    "100 Index/Lesson 7.md",
+    "000 img/Pasted image 20250516162325.png",
+    "000 img",
+    "000 img/Pasted image 20250516162107.png",
     "301 Cursos/Practical DL for Coders.md",
+    "999 Plantillas/Clase.md",
+    "100 Index/Lesson 7.md",
     "600 Libros/Notas/15-05-2025 📚 El Camino de los Reyes.md",
     "999 Plantillas/Books.md",
-    "999 Plantillas/Clase.md",
     "300 Facultad/Materias/DB.md",
     "301 Cursos/Practical DL for Coders",
     "301 Cursos",
@@ -221,7 +224,6 @@
     "Sin título.md",
     "200 Facultad/Materias/DB",
     "200 Facultad/Materias/Sin título.canvas",
-    "300 Facultad/Materias",
     "Bienvenido.md"
   ]
 }
