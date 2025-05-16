@@ -28,13 +28,13 @@ count = 0            # track count of items seen since last weight update
 for x,y in dl:
     count += len(x)  # update count based on this minibatch size
     calc_loss(coeffs, x, y).backward()
-    if count>64:     # count is greater than accumulation target, so do weight update
+    if count>=64:     # count is greater than accumulation target, so do weight update
         coeffs.data.sub_(coeffs.grad * lr)
         coeffs.grad.zero_()
         count=0      # reset count
 ```
 
-Es decir, calcula los gradientes con `backward()` sobre los minibatches predefinidos según un índice en el trainer, y al no actualizar los pesos inmediatamente, obtenemos un resultado equivalente consumiendo mucha menos memoria al operar con batches más pequeños.
+Es decir, calcula los gradientes con `backward()` sobre los minibatches predefinidos según un índice en el trainer, y al no actualizar los pesos inmediatamente, obtenemos un resultado equivalente (NO siempre, pero particularmente si en convNext) consumiendo mucha menos memoria al operar con batches más pequeños.
 
 Para dimensionar el efecto de Gradient Accumulation, calculamos el uso de memoria del siguiente modelo:
 
