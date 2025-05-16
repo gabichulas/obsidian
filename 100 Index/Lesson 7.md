@@ -58,7 +58,7 @@ PD: Esto ya está implementado y optimizado, no es necesario hacerlo manualmente
 
 ---
 
-# Multi-target models
+# Multi-target model
 
 Ya vimos cómo desarrollar un modelo que prediga *la* categoría de una imágen, pero nos interesa saber si podemos crear uno capaz de predecir más de una categoría.
 
@@ -108,4 +108,31 @@ dls.show_batch(max_n=6)
 ```
 
 ![[Pasted image 20250516175240.png]]
+
+
+## Modelo típico
+
+Creamos el learner para predecir **solo** la enfermedad:
+
+```python
+arch = 'convnext_small_in22k'
+learn = vision_learner(dls, arch, loss_func=disease_loss, metrics=disease_err, n_out=10).to_fp16()
+lr = 0.01 # learning rate
+```
+
+Notamos dos funciones desconocidas: `disease_loss` y `disease_err`. Las definiciones son las siguientes:
+
+```python
+def disease_err(inp,disease,variety): return error_rate(inp,disease)
+def disease_loss(inp,disease,variety): return F.cross_entropy(inp,disease)
+```
+
+La creación de estas funciones se debe a que ahora, en vez de dos inputs, tenemos tres. Ambas funciones son equivalentes, solo que seleccionando solo uno de los targets. Ver [[Cross Entropy]].
+
+Notar el parámetro `n_out=10`. Este indica el órden de la matriz resultado, o, equivalentemente, la cantidad de enfermedades únicas que hay.
+
+
+## Modelo multi-objetivo
+
+Para transformar lo que hicimos en un [[#Multi-target model]], hacemos lo siguiente:
 
