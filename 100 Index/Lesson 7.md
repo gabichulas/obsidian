@@ -65,7 +65,7 @@ Ya vimos cómo desarrollar un modelo que prediga *la* categoría de una imágen,
 Tomaremos como ejemplo el dataset de una [competencia](https://www.kaggle.com/competitions/paddy-disease-classification) de **Kaggle**. Los datos se ven así:
 
 | image_id     | label                     | variety | age |
-|--------------|---------------------------|---------|-----|
+|:------------:|:-------------------------:|:-------:|:---:|
 | 100330.jpg   | bacterial_leaf_blight     | ADT45   | 45  |
 | 100365.jpg   | bacterial_leaf_blight     | ADT45   | 45  |
 | 100382.jpg   | bacterial_leaf_blight     | ADT45   | 45  |

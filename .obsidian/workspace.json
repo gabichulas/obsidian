@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#dl",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
