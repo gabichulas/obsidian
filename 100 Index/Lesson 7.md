@@ -136,3 +136,21 @@ Notar el parámetro `n_out=10`. Este indica el órden de la matriz resultado, o,
 
 Para transformar lo que hicimos en un [[#Multi-target model]], hacemos lo siguiente:
 
+```python
+learn = vision_learner(dls, arch, n_out=20).to_fp16()
+```
+
+Vemos que ahora `n_out` es 20. Esto se debe a que ya no solo queremos predecir las 10 enfermedades, sino tambien los 10 tipos de planta.
+
+Luego, redefinimos las funciones de loss:
+
+```python
+def disease_loss(inp,disease,variety): return F.cross_entropy(inp[:,:10],disease)
+```
+
+```python
+def variety_loss(inp,disease,variety): return F.cross_entropy(inp[:,10:],variety)
+```
+
+Ver [[Manipulación de listas en Python]].
+
