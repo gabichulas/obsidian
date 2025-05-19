@@ -6,7 +6,7 @@
 
 ---
 
-# Gradient Accumulation
+# [Gradient Accumulation](https://www.kaggle.com/code/jhoward/scaling-up-road-to-the-top-part-3)
 
 Al correr modelos más grandes, podemos tener problemas de VRAM, por lo que muchos pensarían que modelos más grandes -> GPUs más potentes, pero no es necesariamente cierto. 
 
@@ -58,7 +58,7 @@ PD: Esto ya está implementado y optimizado, no es necesario hacerlo manualmente
 
 ---
 
-# Multi-target model
+# [Multi-target model](https://www.kaggle.com/code/jhoward/multi-target-road-to-the-top-part-4)
 
 Ya vimos cómo desarrollar un modelo que prediga *la* categoría de una imágen, pero nos interesa saber si podemos crear uno capaz de predecir más de una categoría.
 
@@ -153,4 +153,44 @@ def variety_loss(inp,disease,variety): return F.cross_entropy(inp[:,10:],variety
 ```
 
 Ver [[Manipulación de listas en Python]].
+
+Luego, combinamos ambas funciones en una sola:
+
+```python
+def combine_loss(inp,disease,variety): return disease_loss(inp,disease,variety) + variety_loss(inp,disease,variety)
+```
+
+Seria bueno ver los error_rate de cada output por separado, por lo que:
+
+```python
+def disease_err(inp,disease,variety): return error_rate(inp[:,:10],disease)
+def variety_err(inp,disease,variety): return error_rate(inp[:,10:],variety)
+
+err_metrics = (disease_err,variety_err)
+```
+
+Nos gustaria tambien ver las metricas por separado:
+
+```python
+all_metrics = err_metrics+(disease_loss,variety_loss) 
+# (disease_err,variety_err,disease_loss,variety_loss)
+```
+
+Finalmente, creamos el learner:
+
+```python
+learn = vision_learner(dls, arch, loss_func=combine_loss, metrics=all_metrics, n_out=20).to_fp16()
+
+learn.fine_tune(5, lr)
+```
+
+![[Pasted image 20250519155433.png]]
+
+## Conclusiones
+
+Esta es una técnica muy útil para estas situaciones, pero tambien tiene una característica muy especial. Irónicamente, en algunos casos, puede mejorar la precisión de features individuales con respecto a modelos convencionales que estudiarían únicamente esa feature. Esto se debe a que, al analizar no solo esa, el modelo puede ser capaz de encontrar patrones que serían imposibles de encontrar con un modelo single-target. Por ejemplo, "la enfermedad *x* es más propensa a desarrollarse en la planta *y*".
+
+---
+
+# [Collaborative Filtering](https://www.kaggle.com/code/jhoward/collaborative-filtering-deep-dive/notebook)
 
