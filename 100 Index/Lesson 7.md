@@ -194,3 +194,95 @@ Esta es una técnica muy útil para estas situaciones, pero tambien tiene una ca
 
 # [Collaborative Filtering](https://www.kaggle.com/code/jhoward/collaborative-filtering-deep-dive/notebook)
 
+Supongamos que tenemos un dataset que describe los ratings dados por ciertos usuarios a ciertas películas. Se vería algo así:
+
+```python
+ratings.head()
+```
+
+| user | movie | rating | timestamp   |
+|------|-------|--------|-------------|
+| 196  | 242   | 3      | 881250949   |
+| 186  | 302   | 3      | 891717742   |
+| 22   | 377   | 1      | 878887116   |
+| 244  | 51    | 2      | 880606923   |
+| 166  | 346   | 1      | 886397596   |
+
+Podemos organizar esta información de forma más legible e intuitiva de la siguiente forma:
+
+![[Untitled.png]]
+
+Podemos observar que hay ciertos valores que no existen (el usuario no vio la película), los cuales son los que queremos predecir.
+
+Para buscar una forma de "rellenar" estos vacíos, debemos empezar buscando una forma de procesar esta matriz para que nuestro modelo pueda entender el input que le demos. Una forma de hacer esto es la siguiente:
+
+Si supieramos qué tan importante es un aspecto de una película (género, año, director, estilo) podríamos crear un vector de valores entre -1 y 1 indicando la importancia de cada uno de estos valores. 
+
+```python
+force_awakens = np.array([0.98,0.9,-0.9])
+```
+
+En este caso, por ejemplo, [The Force Awakens](https://www.imdb.com/es/title/tt2488496/?ref_=ext_shr_lnk) tiene un puntaje de 0.98 en "Ciencia Ficción", 0.9 en "Acción" y -0.9 en "Clásico" (ya que es de 2017).
+
+Podemos representar un usuario al que le gustan las películas de ciencia ficción de la siguiente forma:
+
+```python
+user1 = np.array([0.9,0.8,-0.6])
+```
+
+Si observamos, componente a componente, los valores se acercan mucho, por lo que es muy probable que a `user1` le guste la película.
+
+Luego, calculamos el producto punto entre estos dos vectores:
+
+```python
+(user1*force_awakens).sum()
+
+# Output: 2.1420000000000003
+```
+
+
+> [!NOTE] Nota
+> El producto punto es **muy** importante en el ML, ya que constituye la base de la multiplicación de matrices. Básicamente, multiplicar dos vectores o matrices nx1 y 1xn es exactamente igual a calcular el producto punto. 
+
+
+Si hacemos lo mismo para [Casablanca](https://www.imdb.com/es/title/tt0034583/?ref_=ext_shr_lnk):
+
+```python
+casablanca = np.array([-0.99,-0.3,0.8])
+(user1*casablanca).sum()
+
+# Output: -1.611
+```
+
+Para llevar esto a la práctica, podemos asignar estos valores a cada uno de los usuarios y películas y hacer nuestros cálculos para crear nuestras primeras predicciones. Los vectores asignados son inicializados aleatoriamente, por lo que las predicciones serán muy malas.
+
+![[Untitled 1.png]]
+
+Por ejemplo, el rating estimado que le dio el usuario 14 a la película 27 es:
+
+$$
+0.21 \times (-1.69) + 1.61 \times 1.01 + 2.89 \times 0.82 - 1.26 \times 1.89 + 0.82 \times 2.39
+$$
+
+Suponiendo que la primer componente simboliza qué tan romántica es una película, si el usuario tiene un valor muy alto y la película también o lo contrario (ambos scores muy bajos), el valor calculado va a ser muy alto, es decir, hay una gran correlación. Por otro lado, si al usuario le gustan mucho las películas románticas y la película no lo es, el valor será muy bajo,
+
+Luego, debemos elegir una funcion de *loss*. Vamos a elegir [MSE](https://en.wikipedia.org/wiki/Mean_squared_error). Con esto podemos entrenar nuestro modelo minimizando la función mediante descenso del gradiente estocástico.
+
+> At each step, the stochastic gradient descent optimizer will calculate the match between each movie and each user using the dot product, and will compare it to the actual rating that each user gave to each movie. It will then calculate the derivative of this value and will step the weights by multiplying this by the learning rate. After doing this lots of times, the loss will get better and better, and the recommendations will also get better and better.
+
+
+## DataLoaders
+
+Vamos a implementar esto. Primero, creamos los DataLoaders (suponiendo que ya procesamos el dataset). 
+
+```python
+dls = CollabDataLoaders.from_df(ratings, item_name='title', bs=64)
+dls.show_batch()
+```
+
+![[Pasted image 20250519212631.png]]
+
+
+
+
+
