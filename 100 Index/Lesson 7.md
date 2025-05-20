@@ -282,7 +282,26 @@ dls.show_batch()
 
 ![[Pasted image 20250519212631.png]]
 
+Luego, inicializamos las matrices necesarias para que PyTorch pueda operar sobre ellas:
 
+```python
+n_users  = len(dls.classes['user'])
+n_movies = len(dls.classes['title'])
+n_factors = 5
 
+user_factors = torch.randn(n_users, n_factors)
+movie_factors = torch.randn(n_movies, n_factors)
+```
+
+Para realizar los productos punto, debemos buscar los índices de la película y el usuario sobre los que queremos operar. Lamentablemente, esto no es algo que pueda hacer un modelo por si solo, pero podemos usar el siguiente "truco":
+
+```python
+one_hot_3 = one_hot(3, n_users).float()
+user_factors.t() @ one_hot_3
+
+# Output: tensor([-1.2493, -0.3099,  1.4229,  0.0840,  0.4132])
+```
+
+Lo que estamos haciendo es 
 
 
