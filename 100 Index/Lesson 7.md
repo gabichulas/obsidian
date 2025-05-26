@@ -1,12 +1,26 @@
 15-05-2025 23:37
 **Clase**: [[Practical DL for Coders]]
-**Temas**: #dl #memoria #gradient-accumulation
+**Temas**: #dl #gradient-accumulation #multi-target-model #collaborative-filtering #l2
 
-**Estado**: #baby 
+**Estado**: #child
 
 ---
 
-# [Gradient Accumulation](https://www.kaggle.com/code/jhoward/scaling-up-road-to-the-top-part-3)
+# Índice
+
+- [Gradient Accumulation](#Gradient%20Accumulation)
+- [Multi-target model](#Multi-target%20model)
+	- [Modelo típico](#Modelo%20t%C3%ADpico)
+	- [Modelo multi-objetivo](#Modelo%20multi-objetivo)
+	- [Conclusiones](#Conclusiones)
+- [Collaborative Filtering](#Collaborative%20Filtering)
+	- [DataLoaders](#DataLoaders)
+	- [From Scratch](#From%20Scratch)
+	- [L2 Regularization](#L2%20Regularization)
+
+# Gradient Accumulation
+
+[Notebook](https://www.kaggle.com/code/jhoward/scaling-up-road-to-the-top-part-3)
 
 Al correr modelos más grandes, podemos tener problemas de VRAM, por lo que muchos pensarían que modelos más grandes -> GPUs más potentes, pero no es necesariamente cierto. 
 
@@ -58,7 +72,9 @@ PD: Esto ya está implementado y optimizado, no es necesario hacerlo manualmente
 
 ---
 
-# [Multi-target model](https://www.kaggle.com/code/jhoward/multi-target-road-to-the-top-part-4)
+# Multi-target model
+
+[Notebook](https://www.kaggle.com/code/jhoward/multi-target-road-to-the-top-part-4)
 
 Ya vimos cómo desarrollar un modelo que prediga *la* categoría de una imágen, pero nos interesa saber si podemos crear uno capaz de predecir más de una categoría.
 
@@ -192,7 +208,9 @@ Esta es una técnica muy útil para estas situaciones, pero tambien tiene una ca
 
 ---
 
-# [Collaborative Filtering](https://www.kaggle.com/code/jhoward/collaborative-filtering-deep-dive/notebook)
+# Collaborative Filtering
+
+[Notebook](https://www.kaggle.com/code/jhoward/collaborative-filtering-deep-dive/notebook)
 
 Supongamos que tenemos un dataset que describe los ratings dados por ciertos usuarios a ciertas películas. Se vería algo así:
 
@@ -302,6 +320,116 @@ user_factors.t() @ one_hot_3
 # Output: tensor([-1.2493, -0.3099,  1.4229,  0.0840,  0.4132])
 ```
 
-Lo que estamos haciendo es 
+Lo que estamos haciendo es **Embedding**. Si hacemos esto repetidas veces, estaríamos usando muchísima memoria y tomaría mucho tiempo. Por suerte, librerías como PyTorch tienen estas operaciones totalmente optimizadas, por lo que no tenemos que preocuparnos por eso.
 
 
+Si este fuera un problema de *computer vision*, sería sencillo caracterizar cada pixel, ya que cada uno tiene un valor que determina qué tan rojo, verde y blanco es. Para nuestro caso, no existe tal información, por lo que nuestra única alternativa es dejar que el modelo la aprenda por sí mismo, determinando qué características son más o menos importantes.
+
+Es decir, por cada iteración, calculamos nuestra función loss comparando nuestras predicciones con sus valores reales. Luego, calculamos el gradiente de loss respecto a los embeddings y los actualizamos optimizándolos con SGD.
+
+
+## From Scratch
+
+En PyTorch, podemos crear nuestro propio modelo a través de una clase de Python siguiendo los siguientes requisitos:
+
+- hacer que nuestra clase herede de `Module`, provisto por PyTorch,
+- crear la función `forward`, la cual llamará PyTorch a la hora de entrenar el modelo
+
+```python
+class DotProduct(Module):
+    def __init__(self, n_users, n_movies, n_factors):
+        self.user_factors = Embedding(n_users, n_factors)
+        self.movie_factors = Embedding(n_movies, n_factors)
+        
+    def forward(self, x):
+        users = self.user_factors(x[:,0])
+        movies = self.movie_factors(x[:,1])
+        return (users * movies).sum(dim=1)
+```
+
+Notar que el input es una matriz con shape `batch x 2`, donde la primer columna son los IDs de los usuarios y la segunda columna las IDs de las películas.
+
+Creamos nuestro Learner y lo entrenamos:
+
+```python
+model = DotProduct(n_users, n_movies, 50)
+learn = Learner(dls, model, loss_func=MSELossFlat())
+learn.fit_one_cycle(5, 5e-3)
+```
+
+| epoch | train_loss | valid_loss | time  |
+|:-----:|:----------:|:----------:|:-----:|
+| 0     | 1.391418   | 1.281064   | 00:10 |
+| 1     | 1.071581   | 1.059740   | 00:10 |
+| 2     | 0.925082   | 0.955736   | 00:10 |
+| 3     | 0.789137   | 0.877227   | 00:09 |
+| 4     | 0.742079   | 0.862848   | 00:09 |
+
+Nuestro modelo no es tan bueno, pero podemos seguir mejorándolo.
+
+Para esto, vamos a implementar dos cambios fundamentales:
+
+- una sigmoide que prevenga valores mayores a 5,
+- biases para los usuarios y películas, indicando si un usuario es más propenso a ser más positivo o negativo con sus reviews y si una película es, según las reseñas, mejor o peor
+
+```python
+class DotProductBias(Module):
+    def __init__(self, n_users, n_movies, n_factors, y_range=(0,5.5)):
+        self.user_factors = Embedding(n_users, n_factors)
+        self.user_bias = Embedding(n_users, 1)
+        self.movie_factors = Embedding(n_movies, n_factors)
+        self.movie_bias = Embedding(n_movies, 1)
+        self.y_range = y_range
+        
+    def forward(self, x):
+        users = self.user_factors(x[:,0])
+        movies = self.movie_factors(x[:,1])
+        res = (users * movies).sum(dim=1, keepdim=True)
+        res += self.user_bias(x[:,0]) + self.movie_bias(x[:,1])
+        return sigmoid_range(res, *self.y_range)
+
+model = DotProduct(n_users, n_movies, 50)
+learn = Learner(dls, model, loss_func=MSELossFlat())
+learn.fit_one_cycle(5, 5e-3)
+```
+
+| epoch | train_loss | valid_loss | time  |
+|:-----:|:----------:|:----------:|:-----:|
+| 0     | 0.943364   | 0.932987   | 00:08 |
+| 1     | 0.824034   | 0.864243   | 00:08 |
+| 2     | 0.586939   | 0.860469   | 00:09 |
+| 3     | 0.409691   | 0.886897   | 00:08 |
+| 4     | 0.303943   | 0.894082   | 00:08 |
+
+Nuestro modelo empeoró. Podemos ver que a partir de la tercera iteración empieza a empeorar; este es un claro indicador de *overfitting*. 
+
+
+## L2 Regularization
+
+La Regularización [[L2]] consiste en agregar la suma de los cuadrados de los pesos a la función loss, con el objetivo de que, al calcular el gradiente, los pesos se hagan más pequeños.
+
+Esto previene el overfitting ya que mientras más altos son los coeficientes, más "agudos" son los "cañones" de *loss*, causando que nuestro modelo se ajuste a una función demasiado compleja y con cambios muy abruptos, causando que overfittee.
+
+Siendo `wd` -sigla para Weight Decay, sinónimo de L2- un parámetro que controla la suma de los cuadrados de los pesos:
+
+```python
+loss_with_wd = loss + wd * (parameters**2).sum()
+```
+
+`wd` es un parámetro que podemos elegir y pasar como argumento cuando ajustamos nuestro modelo:
+
+```python
+model = DotProductBias(n_users, n_movies, 50)
+learn = Learner(dls, model, loss_func=MSELossFlat())
+learn.fit_one_cycle(5, 5e-3, wd=0.1)
+```
+
+| epoch | train_loss  | valid_loss  | time  |
+|:-----:|:-----------:|:-----------:|:-----:|
+| 0     | 0.964149    | 0.947329    | 00:08 |
+| 1     | 0.853209    | 0.862615    | 00:09 |
+| 2     | 0.734107    | 0.828079    | 00:08 |
+| 3     | 0.595621    | 0.812455    | 00:08 |
+| 4     | 0.490830    | 0.812497    | 00:08 |
+
+El rendimiento mejoró mucho.
