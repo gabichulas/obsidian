@@ -5,7 +5,7 @@ Fecha: <% tp.date.now("DD-MM-YYYY-dddd") %>
 ---
 - Tags: [[MOC]]
 - Autor:
-<% await tp.file.move("/600 Libros/Notas/" + tp.date.now("DD-MM-YYYY") + " 📚 " + tp.file.title) %>
-# [[<% tp.date.now("DD-MM-YYYY") + " 📚 " + tp.file.title %>]]
+<% await tp.file.move("/600 Libros/Notas/" + "📚 " + tp.file.title) %>
+# [[<% "📚 " + tp.file.title %>]]
 
 ## Notas
