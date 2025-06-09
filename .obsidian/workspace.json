@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "100 Index/Lesson 8.md",
+                "file": "500 Proyectos/Notas Informe Grafos.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Lesson 8"
+              "title": "Notas Informe Grafos"
             }
           }
         ],
@@ -199,8 +199,9 @@
   },
   "active": "d43a00080ccc6a1e",
   "lastOpenFiles": [
-    "100 Index/Lesson 7.md",
     "100 Index/Lesson 8.md",
+    "500 Proyectos/Notas Informe Grafos.md",
+    "100 Index/Lesson 7.md",
     "100 Index/Gradient Accumulation.md",
     "301 Cursos/Practical DL for Coders.md",
     "600 Libros/MOC.md",
