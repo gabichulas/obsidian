@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "600 Libros/MOC.md",
-                "mode": "preview",
+                "file": "600 Libros/Notas/📚 El sobrino del mago (Narnia 1).md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "MOC"
+              "title": "📚 El sobrino del mago (Narnia 1)"
             }
           },
           {
@@ -198,8 +198,9 @@
   },
   "active": "d51b6d4a311ac42a",
   "lastOpenFiles": [
-    "600 Libros/Notas/📚 El papel pintado amarillo.md",
     "600 Libros/MOC.md",
+    "600 Libros/Notas/📚 El sobrino del mago (Narnia 1).md",
+    "600 Libros/Notas/📚 El papel pintado amarillo.md",
     "500 Proyectos/Notas Informe Grafos.md",
     "100 Index/Lesson 8.md",
     "100 Index/Lesson 7.md",
