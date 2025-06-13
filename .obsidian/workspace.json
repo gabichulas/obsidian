@@ -28,17 +28,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "500 Proyectos/Notas Informe Grafos.md",
+                "file": "600 Libros/Notas/📚 El papel pintado amarillo.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Notas Informe Grafos"
+              "title": "📚 El papel pintado amarillo"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -197,15 +196,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d43a00080ccc6a1e",
+  "active": "d51b6d4a311ac42a",
   "lastOpenFiles": [
-    "100 Index/Lesson 8.md",
+    "600 Libros/Notas/📚 El papel pintado amarillo.md",
+    "600 Libros/MOC.md",
     "500 Proyectos/Notas Informe Grafos.md",
+    "100 Index/Lesson 8.md",
     "100 Index/Lesson 7.md",
     "100 Index/Gradient Accumulation.md",
     "301 Cursos/Practical DL for Coders.md",
-    "600 Libros/MOC.md",
-    "600 Libros/Notas/📚 Untitled.md",
     "999 Plantillas/Books.md",
     "600 Libros/Notas/📚 El Camino de los Reyes.md",
     "100 Index/Sin título 1.md",
