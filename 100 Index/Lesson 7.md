@@ -323,7 +323,7 @@ user_factors.t() @ one_hot_3
 Lo que estamos haciendo es **Embedding**. Si hacemos esto repetidas veces, estaríamos usando muchísima memoria y tomaría mucho tiempo. Por suerte, librerías como PyTorch tienen estas operaciones totalmente optimizadas, por lo que no tenemos que preocuparnos por eso.
 
 
-Si este fuera un problema de *computer vision*, sería sencillo caracterizar cada pixel, ya que cada uno tiene un valor que determina qué tan rojo, verde y blanco es. Para nuestro caso, no existe tal información, por lo que nuestra única alternativa es dejar que el modelo la aprenda por sí mismo, determinando qué características son más o menos importantes.
+Si este fuera un problema de *computer vision*, sería sencillo caracterizar cada pixel, ya que cada uno tiene un valor que determina qué tan rojo, verde y azul es. Para nuestro caso, no existe tal información, por lo que nuestra única alternativa es dejar que el modelo la aprenda por sí mismo, determinando qué características son más o menos importantes.
 
 Es decir, por cada iteración, calculamos nuestra función loss comparando nuestras predicciones con sus valores reales. Luego, calculamos el gradiente de loss respecto a los embeddings y los actualizamos optimizándolos con SGD.
 
