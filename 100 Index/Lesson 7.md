@@ -284,7 +284,7 @@ $$
 
 Suponiendo que la primer componente simboliza qué tan romántica es una película, si el usuario tiene un valor muy alto y la película también o lo contrario (ambos scores muy bajos), el valor calculado va a ser muy alto, es decir, hay una gran correlación. Por otro lado, si al usuario le gustan mucho las películas románticas y la película no lo es, el valor será muy bajo,
 
-Luego, debemos elegir una funcion de *loss*. Vamos a elegir [MSE](https://en.wikipedia.org/wiki/Mean_squared_error). Con esto podemos entrenar nuestro modelo minimizando la función mediante descenso del gradiente estocástico.
+Luego, debemos elegir una funcion de *loss*. Vamos a elegir [MSE](https://en.wikipedia.org/wiki/Mean_squared_error). Con esto podemos entrenar nuestro modelo minimizando la función mediante SGD.
 
 > At each step, the stochastic gradient descent optimizer will calculate the match between each movie and each user using the dot product, and will compare it to the actual rating that each user gave to each movie. It will then calculate the derivative of this value and will step the weights by multiplying this by the learning rate. After doing this lots of times, the loss will get better and better, and the recommendations will also get better and better.
 
