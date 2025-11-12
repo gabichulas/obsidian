@@ -172,4 +172,11 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   7355.1 avail Mem
     494 gabylop+  10 -10    7280   2864   2092 S   0.0   0.0   0:00.03 tmux                                                                                               
 ```
 
-Podemos notar que no hay nada extraño. La mayoría son servicios normales de cualquier instalación de Linux, como bash (lo que estamos utilizando ahora mismo), ssh, 
+Podemos notar que no hay nada extraño. La mayoría son servicios normales de cualquier instalación de Linux, como bash (lo que estamos utilizando ahora mismo), sshd, sudo, docker. Tambien vemos que está corriendo python.
+
+
+---
+
+## Probando ejercicios
+
+Finalmente, vamos a hacer una prueba corriendo uno de los ejercicios desarrollados en la materia para analizar el rendimiento en la VM de Google.
