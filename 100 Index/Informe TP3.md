@@ -46,3 +46,16 @@ Utilizaremos, a modo de comparación, los tiempos obtenidos en el TP1.
 
 ### Ejercicio 4: Multiplicación de matrices
 
+Lamentablemente, por un error de Whatsapp perdimos la captura de pantalla del output de este ejercicio en el cluster y con esta los resultados, pero el funcionamiento del programa fue demostrado con éxito en clase.
+
+### Ejercicio 5: Números primos
+
+![[WhatsApp Image 2025-11-11 at 17.06.49.jpeg]]
+
+| Implementación      | Tiempo (s) | Speedup |
+| :------------------ | :--------- | :------ |
+| Secuencial          | 75.4       | 1       |
+| Paralelo (6 hilos)  | 18.7       | 4.03    |
+| Paralelo (12 hilos) | 12.2       | 6.18    |
+| Cluster             | 0.000449   | -       |
+ **NOTA**: Los resultados del TP1 fueron calculados usando $N=10000000$, sin embargo, al correr en el cluster nosotros usamos $N=1000000$, por lo que el speedup no fue calculado.
