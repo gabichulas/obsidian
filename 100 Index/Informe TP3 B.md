@@ -135,4 +135,41 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ```
 
 
-Podemos notar que es un servidor Linux con especificaciones bastante sencillas
+---
+
+## top
+
+Ahora vamos a analizar los procesos que esta VM está ejecutando
+
+```bash
+top - 20:42:04 up 17 min,  0 user,  load average: 0.02, 0.15, 0.21
+Tasks:  23 total,   1 running,  22 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.8 us,  0.8 sy,  0.0 ni, 98.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem :   7947.4 total,   6389.4 free,    592.3 used,   1203.2 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   7355.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                                            
+    261 root      20   0 1729312  47736  34852 S   0.3   0.6   0:01.21 containerd                                                                                         
+      1 root      20   0    4324   3252   2968 S   0.0   0.0   0:00.08 bash                                                                                               
+      8 syslog    20   0  222140   3780   2440 S   0.0   0.0   0:00.01 rsyslogd                                                                                           
+     24 root      20   0   40080  29060  10884 S   0.0   0.4   0:00.71 python                                                                                             
+     25 root      20   0    6196   2724   2484 S   0.0   0.0   0:00.00 logger                                                                                             
+     70 root      10 -10   12020   4116   3004 S   0.0   0.1   0:00.01 sshd                                                                                               
+    219 root      20   0 1973044  75152  54428 S   0.0   0.9   0:00.48 dockerd                                                                                            
+    263 root      20   0 1231944   8032   6856 S   0.0   0.1   0:00.01 editor-proxy                                                                                       
+    264 root      20   0   16320   6352   5428 S   0.0   0.1   0:00.01 sudo                                                                                               
+    274 root      20   0 1226100   2672   1976 S   0.0   0.0   0:00.00 tmux-agent                                                                                         
+    280 root      10 -10   13992   9700   8324 S   0.0   0.1   0:00.03 sshd                                                                                               
+    353 root      10 -10   13992   9808   8436 S   0.0   0.1   0:00.03 sshd                                                                                               
+    468 root      20   0    2696   1608   1512 S   0.0   0.0   0:00.00 sleep                                                                                              
+    479 gabylop+  10 -10   14252   6408   4752 S   0.0   0.1   0:00.00 sshd                                                                                               
+    480 gabylop+  10 -10   14252   6432   4776 S   0.0   0.1   0:00.02 sshd                                                                                               
+    481 gabylop+  10 -10    7340   3628   3380 S   0.0   0.0   0:00.00 bash                                                                                               
+    484 gabylop+  10 -10    7604   4352   3760 S   0.0   0.1   0:00.00 bash                                                                                               
+    487 gabylop+  10 -10    7340   3612   3360 S   0.0   0.0   0:00.00 bash                                                                                               
+    488 gabylop+  10 -10    7340   3596   3336 S   0.0   0.0   0:00.00 start-shell.sh                                                                                     
+    492 gabylop+  10 -10    6880   3444   3144 S   0.0   0.0   0:00.00 tmux                                                                                               
+    494 gabylop+  10 -10    7280   2864   2092 S   0.0   0.0   0:00.03 tmux                                                                                               
+```
+
+Podemos notar que no hay nada extraño. La mayoría son servicios normales de cualquier instalación de Linux, como bash (lo que estamos utilizando ahora mismo), ssh, 
