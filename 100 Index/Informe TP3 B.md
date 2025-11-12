@@ -179,4 +179,5 @@ Podemos notar que no hay nada extraño. La mayoría son servicios normales de cu
 
 ## Probando ejercicios
 
-Finalmente, vamos a hacer una prueba corriendo uno de los ejercicios desarrollados en la materia para analizar el rendimiento en la VM de Google.
+Finalmente, vamos a hacer una prueba corriendo uno de los ejercicios desarrollados en la materia para analizar el rendimiento en la VM de Google. En este caso elegí el ejercicio de multiplicación de matrices del TP1.
+
