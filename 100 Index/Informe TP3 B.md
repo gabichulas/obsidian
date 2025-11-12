@@ -179,5 +179,16 @@ Podemos notar que no hay nada extraño. La mayoría son servicios normales de cu
 
 ## Probando ejercicios
 
-Finalmente, vamos a hacer una prueba corriendo uno de los ejercicios desarrollados en la materia para analizar el rendimiento en la VM de Google. En este caso elegí el ejercicio de multiplicación de matrices del TP1.
+Finalmente, vamos a hacer una prueba corriendo uno de los ejercicios desarrollados en la materia para analizar el rendimiento en la VM de Google. En este caso elegí el ejercicio de multiplicación de matrices del TP1. Usaremos $N=1000$. Los elementos de la matriz 1 serán 0.1 y los de la matriz 2 serán 0.2.
 
+Los resultados del TP1 fueron los siguientes:
+
+| 1000 | Secuencial | 2307ms | 2 x 10<sup>7</sup> | 1   |
+| :--- | :--------- | :----- | :----------------- | :-- |
+| 1000 | Paralelo   | 393ms  | 2 x 10<sup>7</sup> | 5.8 |
+
+Mientras que en Cloud Shell obtenemos los siguientes resultados:
+
+| 1000 | Secuencial | 2307ms  | 2 x 10<sup>7</sup> | 1   |
+| :--- | :--------- | :------ | :----------------- | :-- |
+| 1000 | Paralelo   | 29172ms | 2 x 10<sup>7</sup> | 5.8 |
