@@ -79,4 +79,60 @@ Linux
 ```
 
 
-### lsb_r
+### lsb_release -a
+
+```bash
+gabylopezromero13@cloudshell:~ (woven-nimbus-478020-c7)$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 24.04.3 LTS
+Release:        24.04
+Codename:       noble
+```
+
+
+### df -h
+
+```bash
+gabylopezromero13@cloudshell:~ (woven-nimbus-478020-c7)$ df -h
+Filesystem                         Size  Used Avail Use% Mounted on
+overlay                             95G   54G   42G  57% /
+tmpfs                               64M     0   64M   0% /dev
+/dev/sda1                           95G   54G   42G  57% /root
+/dev/disk/by-id/google-home-part1  4.8G   84K  4.6G   1% /home
+/dev/root                          2.0G  1.2G  762M  62% /usr/lib/modules
+shm                                 64M     0   64M   0% /dev/shm
+```
+
+
+### ifconfig
+
+```bash
+gabylopezromero13@cloudshell:~ (woven-nimbus-478020-c7)$ ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1460
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 6e:b6:95:55:80:c0  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1460
+        inet 10.88.0.3  netmask 255.255.0.0  broadcast 10.88.255.255
+        ether a6:2c:e4:21:69:16  txqueuelen 1000  (Ethernet)
+        RX packets 5831  bytes 1210283 (1.2 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 4356  bytes 746436 (746.4 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 817  bytes 98126 (98.1 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 817  bytes 98126 (98.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+
+Podemos notar que es un servidor Linux con especificaciones bastante sencillas
