@@ -4,5 +4,11 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "100 Index",
   "spellcheck": false,
-  "attachmentFolderPath": "000 img"
+  "attachmentFolderPath": "000 img",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }

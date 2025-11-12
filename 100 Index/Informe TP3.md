@@ -24,12 +24,12 @@ Utilizaremos, a modo de comparación, los tiempos obtenidos en el TP1.
 
 | Implementación      | Resultado          | Tiempo (ms) | Speedup |
 | :------------------ | :----------------- | :---------- | :------ |
-| Secuencial          | 14.731801283197943 | 0.020245    | 1       |
-| Paralelo (4 hilos)  | 14.731801283197943 | 0.011851    | 1.7     |
-| Paralelo (8 hilos)  | 14.731801283197943 | 0.006011    | 3.37    |
-| Paralelo (12 hilos) | 14.731801283197943 | 0.004480    | 4.52    |
-| Paralelo (20 hilos) | 14.731801283197943 | 0.005155    | 3.92    |
-| Cluster             | 14.64549295614092  | 0.00273     | 7.41    |
+| Secuencial          | 14.731801283197943 | 0.020245    | 1x      |
+| Paralelo (4 hilos)  | 14.731801283197943 | 0.011851    | 1.7x    |
+| Paralelo (8 hilos)  | 14.731801283197943 | 0.006011    | 3.37x   |
+| Paralelo (12 hilos) | 14.731801283197943 | 0.004480    | 4.52x   |
+| Paralelo (20 hilos) | 14.731801283197943 | 0.005155    | 3.92x   |
+| Cluster             | 14.64549295614092  | 0.00273     | 7.41x   |
 
 
 ### Ejercicio 3: Búsqueda de patrones
@@ -38,10 +38,10 @@ Utilizaremos, a modo de comparación, los tiempos obtenidos en el TP1.
 
 | Implementación      | Tiempo (s) | Speedup |
 | :------------------ | :--------- | :------ |
-| Secuencial          | 4.30556    | 1       |
-| Paralelo (12 hilos) | 0.971355   | 4.43    |
-| Paralelo (32 hilos) | 0.887331   | 4.85    |
-| Cluster             | 0.588957   | 7.31    |
+| Secuencial          | 4.30556    | 1x      |
+| Paralelo (12 hilos) | 0.971355   | 4.43x   |
+| Paralelo (32 hilos) | 0.887331   | 4.85x   |
+| Cluster             | 0.588957   | 7.31x   |
 
 
 ### Ejercicio 4: Multiplicación de matrices
@@ -52,10 +52,8 @@ Lamentablemente, por un error de Whatsapp perdimos la captura de pantalla del ou
 
 ![[WhatsApp Image 2025-11-11 at 17.06.49.jpeg]]
 
-| Implementación      | Tiempo (s) | Speedup |
-| :------------------ | :--------- | :------ |
-| Secuencial          | 75.4       | 1       |
-| Paralelo (6 hilos)  | 18.7       | 4.03    |
-| Paralelo (12 hilos) | 12.2       | 6.18    |
-| Cluster             | 0.000449   | -       |
- **NOTA**: Los resultados del TP1 fueron calculados usando $N=10000000$, sin embargo, al correr en el cluster nosotros usamos $N=1000000$, por lo que el speedup no fue calculado.
+| Implementación     | Tiempo (s) | Speedup |
+| :----------------- | :--------- | :------ |
+| Secuencial         | 0.165236   | 1x      |
+| Paralelo (6 hilos) | 0.0768819  | 2.14x   |
+| Cluster            | 0.000449   | 368x    |
