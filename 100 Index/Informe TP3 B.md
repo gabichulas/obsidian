@@ -183,12 +183,18 @@ Finalmente, vamos a hacer una prueba corriendo uno de los ejercicios desarrollad
 
 Los resultados del TP1 fueron los siguientes:
 
-| 1000 | Secuencial | 2307ms | 2 x 10<sup>7</sup> | 1   |
-| :--- | :--------- | :----- | :----------------- | :-- |
-| 1000 | Paralelo   | 393ms  | 2 x 10<sup>7</sup> | 5.8 |
+| 1000 | Secuencial | 2307ms | 2 x 10<sup>7</sup> | 1x   |
+| :--- | :--------- | :----- | :----------------- | :--- |
+| 1000 | Paralelo   | 393ms  | 2 x 10<sup>7</sup> | 5.8x |
 
 Mientras que en Cloud Shell obtenemos los siguientes resultados:
 
-| 1000 | Secuencial | 2307ms  | 2 x 10<sup>7</sup> | 1   |
-| :--- | :--------- | :------ | :----------------- | :-- |
-| 1000 | Paralelo   | 29172ms | 2 x 10<sup>7</sup> | 5.8 |
+![[Pasted image 20251112180347.png]]
+
+![[Pasted image 20251112180402.png]]
+
+| 1000 | Secuencial | 26259ms | 2 x 10<sup>7</sup> | 1x   |
+| :--- | :--------- | :------ | :----------------- | :--- |
+| 1000 | Paralelo   | 29172ms | 2 x 10<sup>7</sup> | 0.9x |
+
+Vemos que el rendimiento en paralelo es peor que en secuencial. Es muy probable que este comportamiento se deba a que la VM que estamos utilizando tenga únicamente 2 CPUs, por lo que la sobrecarga de gestionar tantos hilos en solo 2 CPUs fue **mayor** que el tiempo que se ahorró al dividir el trabajo.
