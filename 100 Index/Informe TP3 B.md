@@ -62,3 +62,21 @@ Vulnerabilities:
   Vmscape:                   Not affected
 ```
 
+### free
+
+```bash
+gabylopezromero13@cloudshell:~ (woven-nimbus-478020-c7)$ free
+               total        used        free      shared  buff/cache   available
+Mem:         8138108      616216     6534840        1140     1230216     7521892
+Swap:              0           0           0
+```
+
+
+### uname
+
+```bash
+Linux
+```
+
+
+### lsb_r
