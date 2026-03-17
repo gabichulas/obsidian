@@ -19,7 +19,6 @@ kanban-plugin: board
 
 ## Working
 
-- [ ] Crear micro-dataset (2-5 GB) de prueba y subir a Kaggle
 
 
 ## Testing
@@ -29,6 +28,7 @@ kanban-plugin: board
 ## Done
 
 - [ ] Adaptar preprocesamiento (TRAIN/TEST/VAL y elegir %)
+- [ ] Crear micro-dataset (2-5 GB) de prueba y subir a Kaggle
 
 
 
