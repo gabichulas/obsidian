@@ -6,8 +6,6 @@ kanban-plugin: board
 
 ## TODO
 
-- [ ] Adaptar preprocesamiento (TRAIN/TEST/VAL y elegir %)
-- [ ] Crear micro-dataset (2-5 GB) de prueba y subir a Kaggle
 - [ ] Ejecutar benchmark de tiempos con ViT en Kaggle
 - [ ] Generar subset final estratificado en local. Subirlo
 - [ ] Ajustar arquitecturas con número similar de parámetros
@@ -21,6 +19,7 @@ kanban-plugin: board
 
 ## Working
 
+- [ ] Crear micro-dataset (2-5 GB) de prueba y subir a Kaggle
 
 
 ## Testing
@@ -29,6 +28,7 @@ kanban-plugin: board
 
 ## Done
 
+- [ ] Adaptar preprocesamiento (TRAIN/TEST/VAL y elegir %)
 
 
 
