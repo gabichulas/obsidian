@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "500 Proyectos/Demix/Bitácora.md",
+                "file": "500 Proyectos/HELA2/Informe HELA2.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Bitácora"
+              "title": "Informe HELA2"
             }
           }
         ],
@@ -217,8 +217,10 @@
   },
   "active": "121ed8bc43f13017",
   "lastOpenFiles": [
-    "500 Proyectos/Demix/PLAN.md",
     "500 Proyectos/Demix/Bitácora.md",
+    "500 Proyectos/HELA2/Informe HELA2.md",
+    "500 Proyectos/HELA2",
+    "500 Proyectos/Demix/PLAN.md",
     "500 Proyectos/Demix/Kanban.md",
     "600 Libros/Notas/📚 El papel pintado amarillo.md",
     "600 Libros/MOC.md",
@@ -260,7 +262,6 @@
     "2025-05-15.md",
     "600 Libros/Notas",
     "600 Libros",
-    "200 Material",
     "Sin título 1.md",
     "200 Facultad/Materias/Sin título.canvas"
   ]
