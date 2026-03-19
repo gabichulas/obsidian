@@ -1,6 +1,7 @@
-# Optimización Logística para Distribución de Helados - Hela2
----
+# Optimización Logística para Distribución de Helados
+
 Código de proyecto: HELA2
+
 ---
 
 ## Índice
