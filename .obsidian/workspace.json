@@ -41,21 +41,15 @@
             "id": "121ed8bc43f13017",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "500 Proyectos/Demix/Kanban.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "500 Proyectos/Demix/Bitácora.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-trello",
-              "title": "Kanban"
+              "icon": "lucide-file",
+              "title": "Bitácora"
             }
           }
         ],
@@ -204,8 +198,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -223,9 +216,9 @@
   },
   "active": "121ed8bc43f13017",
   "lastOpenFiles": [
+    "500 Proyectos/Demix/PLAN.md",
     "500 Proyectos/Demix/Bitácora.md",
     "500 Proyectos/Demix/Kanban.md",
-    "500 Proyectos/Demix/PLAN.md",
     "600 Libros/Notas/📚 El papel pintado amarillo.md",
     "600 Libros/MOC.md",
     "500 Proyectos/Demix",
