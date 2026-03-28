@@ -198,8 +198,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,6 +216,7 @@
   },
   "active": "121ed8bc43f13017",
   "lastOpenFiles": [
+    "000 img/Pasted image 20260328173001.png",
     "500 Proyectos/HELA2/Informe HELA2.md",
     "500 Proyectos/HELA2/NOTAS_HELA2.md",
     "500 Proyectos/HELA2/informe.md",
@@ -260,7 +260,6 @@
     "301 Cursos",
     "400 Coding/Cursos/Practical DL for Coders",
     "400 Coding/Cursos",
-    "999 Plantillas/Curso.md",
     "600 Libros/Notas",
     "600 Libros",
     "200 Facultad/Materias/Sin título.canvas"
