@@ -29,3 +29,10 @@ Luego de 105 epochs y unas 10 horas de entrenamiento, los numeros son los siguie
 
 Creo que sería bueno hacer una prueba para ver como funciona porque no mejoró demasiado en las ultimas 50 epochs (de 0.126 a 0.121).
 
+### 4/4
+
+Hoy hice una pruebita con el modelo de arriba y funciona sorprendentemente bien. Está verde así que lo voy a seguir entrenando, pero anda bien.
+
+Hice un test con "Fade Into You" y lo que mejor separó con diferencia fue la voz. El bajo va bastante encaminado. Le cuesta bastante separar la batería. El stem de "other" elimina casi por completo la batería.
+
+Todavía no testeé métricas, pero a simple vista va bien.
