@@ -1,4 +1,4 @@
-**Hallazgos Por Escenario y Peso**
+**Por Escenario y Peso**
 
 - E1 small, length: mejor configuración global en calidad es length_alpha0.8, seguida por length_ants40 y length_beta2.5. Se ve también en la distribución de objetivo y distancia.
 - E1 small, street time: ganan street_time_iters120 y street_time_beta2.5 en costo objetivo; street_time_iters50 corre mucho más rápido pero pierde calidad.
