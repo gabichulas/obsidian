@@ -20,14 +20,14 @@
 - Mejores en puntualidad mediana: varios configs empatados arriba (especialmente beta2.5 y varios street time).
 - Pero los más rápidos no son los mejores en costo objetivo. Hay tradeoff real y visible en [boxplot_exec_s_all_configs.png](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) y [boxplot_pct_on_time_all_configs.png](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html).
 
-**Sensibilidad De Parámetros (muy útil para decidir)**
+**Sensibilidad De Parámetros**
 
 - alpha tiene correlación positiva con costo en los 4 grupos analizados: subir alpha empeora.
 - n ants y n iters suelen tener correlación levemente negativa: subirlos ayuda un poco, pero con rendimiento decreciente.
 - beta ayuda más en street time que en length.
 - gamma y rho tienen efecto menor y menos estable.
 
-**Recomendación Práctica**
+**Resumen**
 
 1. Si priorizas calidad: usa alpha 0.8 como base en ambos pesos.
 2. Si priorizas tiempo de cómputo: usa iters50 o ants20, aceptando pérdida de calidad.
