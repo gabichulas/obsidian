@@ -103,13 +103,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "500 Proyectos/HELA2/Data Analysis.md",
+                "file": "100 Index/Chaos Monkey Project.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Data Analysis"
+              "title": "Chaos Monkey Project"
             }
           }
         ],
@@ -276,8 +276,8 @@
   },
   "active": "2aa5bb69cac0f135",
   "lastOpenFiles": [
-    "500 Proyectos/HELA2/NOTAS_HELA2.md",
     "500 Proyectos/HELA2/Data Analysis.md",
+    "500 Proyectos/HELA2/NOTAS_HELA2.md",
     "100 Index/Curso Kubernetes.md",
     "100 Index/Gradient Accumulation.md",
     "100 Index/Lesson 7.md",
