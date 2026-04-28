@@ -67,3 +67,131 @@
     - **Why it's the best:** Once your cluster is running, you need a way to route `yourdomain.com/api` to one pod and `yourdomain.com/web` to another. This is done via Ingress.
         
     - **Action:** Read the official Kubernetes documentation on **Ingress**. Then, deploy the NGINX Ingress Controller on your homelab.
+
+
+---
+
+### Module 1: The Docker Networking Trap
+
+**The Concept:** Containers must communicate over isolated bridge networks. Never publish ports directly to the host on a production server. **The "Why":** Docker alters `iptables` directly. If you configure a strict Linux firewall (UFW) to block everything, but you run `docker run -p 8000:8000`, Docker bypasses your firewall and exposes the container to the public internet.
+
+**Your Action Plan:**
+
+1. **Create Custom Bridge Networks:** Build a `docker-compose.yml` where you explicitly define a custom network.
+    
+2. **Remove Port Bindings:** Do not use the `ports: ["8000:8000"]` array for your backend or database. Only use the `expose` directive, or rely on the bridge network.
+    
+3. **Use an API Gateway/Proxy:** The _only_ container that should have a `ports` mapping to the host is your Reverse Proxy (like NGINX). NGINX sits on the host ports (80/443) and routes traffic internally to your isolated containers using their Docker DNS names (e.g., `http://backend_api:8000`).
+    
+
+---
+
+### Module 2: Cloud Architecture (Public vs. Private)
+
+**The Concept:** Host infrastructure in private networks, exposing only what is necessary via a Load Balancer in the public network. **The Translation:**
+
+- **AWS:** VPC with Public Subnet (contains Internet Gateway) and Private Subnet (contains NAT Gateway). Traffic enters via **ELB (Elastic Load Balancer)**.
+    
+- **GCP:** VPC with public/private subnets. Traffic enters via **Cloud Load Balancing**.
+    
+
+**Your Action Plan (On GCP):**
+
+1. Create a custom VPC in GCP. Create two subnets: `subnet-public` and `subnet-private`.
+    
+2. Deploy a Compute Engine VM in the `subnet-private` (do not give it an External IP). This will hold your application.
+    
+3. Deploy a Google Cloud Load Balancer (ELB equivalent). Attach its frontend to a public IP, and point its backend to your private VM. This ensures external users can only talk to the Load Balancer, never directly to your server.
+    
+
+---
+
+### Module 3: Micro-Segmentation & Secure Access
+
+**The Concept:** Configure Security Groups properly and use a Bastion SSH tunnel proxy to access private instances safely. **The Translation:**
+
+- **AWS:** Security Groups (Stateful virtual firewalls).
+    
+- **GCP:** VPC Firewall Rules.
+    
+
+**Your Action Plan (On GCP):**
+
+1. **Security Groups (Firewalls):** Configure GCP Firewall rules with a "Default Deny" mindset. Create a rule that allows your Load Balancer to talk to your private VM on port 8000. Create another rule that explicitly denies all other incoming traffic to that VM.
+    
+2. **The Bastion Host:** Since your VM has no public IP, you cannot SSH into it from your laptop.
+    
+    - Deploy a tiny, cheap VM in your `subnet-public`. This is your Bastion (Jump Box).
+        
+    - Configure firewall rules so you can _only_ SSH into the Bastion from your home IP address.
+        
+    - Configure rules so the Bastion is the _only_ machine allowed to SSH into your private VM.
+        
+    - _Workflow:_ You SSH into the Bastion, and from inside the Bastion, you SSH into the private server.
+        
+
+---
+
+### Module 4: Application Security & Database Protection
+
+**The Concept:** Review OWASP Top 10, never expose the database to the internet, never use default passwords, and use bcrypt instead of MD5. **The "Why":** MD5 is a fast hashing algorithm originally designed for file checksums; hackers use "rainbow tables" to crack MD5 passwords in milliseconds. `bcrypt` has deliberate mathematical slow-downs (salting and key stretching) making brute-force attacks economically impossible.
+
+**Your Action Plan:**
+
+1. **Database Isolation:** Ensure your PostgreSQL database lives strictly in the private network. Change the default `postgres` user password immediately upon creation.
+    
+2. **Auth Implementation:** In your backend code, implement authentication securely.
+    
+    Python
+    
+    ```
+    import bcrypt
+    
+    # Hash a password before storing it in the database
+    def hash_password(plain_text_password: str) -> bytes:
+        # Generate a salt and hash the password
+        salt = bcrypt.gensalt()
+        hashed = bcrypt.hashpw(plain_text_password.encode('utf-8'), salt)
+        return hashed
+    
+    # Verify a user login attempt
+    def check_password(plain_text_password: str, hashed_password: bytes) -> bool:
+        return bcrypt.checkpw(plain_text_password.encode('utf-8'), hashed_password)
+    ```
+    
+3. **OWASP Review:** Read the OWASP Top 10 list, focusing heavily on Injection, Broken Authentication, and Security Misconfigurations.
+    
+
+---
+
+### Module 5: The Edge & Traffic Control
+
+**The Concept:** Use a WAF (Web Application Firewall), configure Rate Limits at both the WAF and App level, and use Cloudflare. **The Translation:**
+
+- **AWS:** AWS WAF.
+    
+- **GCP:** Google Cloud Armor.
+    
+
+**Your Action Plan (On your Homelab/Juana Manso):**
+
+1. **Cloudflare Tunnel:** Instead of opening ports on your home router, install `cloudflared` on your Juana Manso. It creates a secure, outbound-only tunnel to Cloudflare.
+    
+2. **WAF & Rate Limits (Edge Level):** Go to the Cloudflare dashboard. Enable the free WAF to block malicious payloads automatically. Set up a Rate Limiting rule (e.g., block any IP making more than 100 requests in 1 minute to your login endpoint).
+    
+3. **Rate Limits (App Level):** Implement an emergency backup rate limiter directly in your code (e.g., using `slowapi` or custom middleware) in case the WAF is bypassed. This protects your database from being overwhelmed.
+    
+
+---
+
+### Module 6: Kubernetes Networking Stuff
+
+**The Concept:** Master how traffic moves inside an orchestrator. **The "Why":** Kubernetes networking builds upon everything above (Docker bridges, Load Balancers, Security Groups) but automates it at scale.
+
+**Your Action Plan (On your Homelab):**
+
+1. **ClusterIP:** Understand that this is the K8s equivalent of a private subnet. Pods can only talk to each other.
+    
+2. **Ingress:** Deploy an NGINX Ingress Controller. This is the Kubernetes equivalent of an ELB/Cloud Load Balancer. It takes external traffic and routes it to internal ClusterIP services based on the URL path.
+    
+3. **Network Policies:** This is the Kubernetes equivalent of Security Groups. Write YAML files that dictate exactly which pods are allowed to communicate with the database pod.
