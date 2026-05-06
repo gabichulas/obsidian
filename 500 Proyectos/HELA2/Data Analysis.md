@@ -29,7 +29,7 @@
 
 **Resumen**
 
-1. Si priorizas calidad: usa alpha 0.8 como base en ambos pesos.
-2. Si priorizas tiempo de cómputo: usa iters50 o ants20, aceptando pérdida de calidad.
-3. Si quieres balance robusto en street time: beta2.5 o alpha0.8.
-4. Si quieres balance robusto en length: alpha0.8, con gamma0.7 como alternativa.
+1. Calidad: alpha 0.8 como base en ambos pesos.
+2. Tiempo de cómputo: iters50 o ants20, aceptando pérdida de calidad.
+3. Balance robusto en street time: beta2.5 o alpha0.8.
+4. Balance robusto en length: alpha0.8, con gamma0.7 como alternativa.
