@@ -118,13 +118,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "100 Index/Networking Learning Plan.md",
+                "file": "500 Proyectos/HELA2/Data Analysis.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Networking Learning Plan"
+              "title": "Data Analysis"
             }
           }
         ],
@@ -291,12 +291,12 @@
   },
   "active": "8bf7264cacf310fd",
   "lastOpenFiles": [
-    "100 Index/Curso Kubernetes.md",
+    "500 Proyectos/HELA2/NOTAS_HELA2.md",
     "100 Index/Networking Learning Plan.md",
+    "100 Index/Curso Kubernetes.md",
     "500 Proyectos/Notas Informe Grafos.md",
     "500 Proyectos/Chaos Monkey Project.md",
     "500 Proyectos/HELA2/Data Analysis.md",
-    "500 Proyectos/HELA2/NOTAS_HELA2.md",
     "100 Index/Gradient Accumulation.md",
     "100 Index/Lesson 7.md",
     "100 Index/Lesson 8.md",
