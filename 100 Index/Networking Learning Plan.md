@@ -102,7 +102,6 @@
 2. Deploy a Compute Engine VM in the `subnet-private` (do not give it an External IP). This will hold your application.
     
 3. Deploy a Google Cloud Load Balancer (ELB equivalent). Attach its frontend to a public IP, and point its backend to your private VM. This ensures external users can only talk to the Load Balancer, never directly to your server.
-    
 
 ---
 
