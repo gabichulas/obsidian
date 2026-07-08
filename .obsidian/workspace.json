@@ -118,14 +118,14 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
+                "file": "300 Facultad/Materias/Estadistica/Ejercicios y Autoevaluaciones recomendados.pdf",
                 "page": 1,
-                "left": -18,
-                "top": 796,
-                "zoom": 0.8394607843137255
+                "left": -12,
+                "top": 836,
+                "zoom": 1.2938419673452932
               },
               "icon": "lucide-file-text",
-              "title": "Autoevaluaciones"
+              "title": "Ejercicios y Autoevaluaciones recomendados"
             }
           }
         ],
@@ -296,9 +296,10 @@
   },
   "active": "8bf7264cacf310fd",
   "lastOpenFiles": [
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT2.pdf",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT1.pdf",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Sin título.canvas",
-    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
     "400 Coding/Manipulación de listas en Python.md",
     "400 Coding/Roadmaps/Backend Developer.md",
     "300 Facultad/Materias/Estadistica/Ejercicios y Autoevaluaciones recomendados.pdf",
@@ -306,7 +307,6 @@
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT6.pdf",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT5.pdf",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT3.pdf",
-    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT2.pdf",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones",
     "300 Facultad/Materias/Estadistica",
     "500 Proyectos/Chaos Monkey Project.md",
