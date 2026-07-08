@@ -116,17 +116,16 @@
             "id": "8bf7264cacf310fd",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "pdf",
               "state": {
-                "file": "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Sin título.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": -118.8393503412561,
-                  "zoom": 0
-                }
+                "file": "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
+                "page": 1,
+                "left": -18,
+                "top": 796,
+                "zoom": 0.8394607843137255
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Sin título"
+              "icon": "lucide-file-text",
+              "title": "Autoevaluaciones"
             }
           }
         ],
@@ -280,6 +279,9 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
       "switcher:Abrir selector rápido": false,
       "graph:Abrir vista gráfica": false,
       "canvas:Crear nuevo lienzo": false,
@@ -294,9 +296,9 @@
   },
   "active": "8bf7264cacf310fd",
   "lastOpenFiles": [
-    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
-    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Sin título.canvas",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT1.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Sin título.canvas",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
     "400 Coding/Manipulación de listas en Python.md",
     "400 Coding/Roadmaps/Backend Developer.md",
     "300 Facultad/Materias/Estadistica/Ejercicios y Autoevaluaciones recomendados.pdf",
