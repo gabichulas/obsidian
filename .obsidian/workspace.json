@@ -116,12 +116,17 @@
             "id": "8bf7264cacf310fd",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "canvas",
               "state": {
-                "file": "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf"
+                "file": "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Sin título.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": -118.8393503412561,
+                  "zoom": 0
+                }
               },
-              "icon": "lucide-file-text",
-              "title": "Autoevaluaciones"
+              "icon": "lucide-layout-dashboard",
+              "title": "Sin título"
             }
           }
         ],
@@ -289,8 +294,9 @@
   },
   "active": "8bf7264cacf310fd",
   "lastOpenFiles": [
-    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT1.pdf",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Sin título.canvas",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT1.pdf",
     "400 Coding/Manipulación de listas en Python.md",
     "400 Coding/Roadmaps/Backend Developer.md",
     "300 Facultad/Materias/Estadistica/Ejercicios y Autoevaluaciones recomendados.pdf",
