@@ -116,15 +116,16 @@
             "id": "8bf7264cacf310fd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "100 Index/Networking Learning Plan.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
+                "page": 1,
+                "left": -12,
+                "top": 796,
+                "zoom": 1.258578431372549
               },
-              "icon": "lucide-file",
-              "title": "Networking Learning Plan"
+              "icon": "lucide-file-text",
+              "title": "Autoevaluaciones"
             }
           }
         ],
@@ -185,7 +186,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 243.5
   },
   "right": {
     "id": "9e14fe6c89bb828a",
@@ -273,7 +274,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -286,14 +288,26 @@
       "bases:Crear nueva base": false,
       "templater-obsidian:Templater": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-kanban:Create new board": false
+      "obsidian-kanban:Create new board": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
   "active": "8bf7264cacf310fd",
   "lastOpenFiles": [
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT1.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Autoevaluaciones.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Autoevaluaciones recomendados.pdf",
+    "100 Index/Networking Learning Plan.md",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT6.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT5.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT3.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/EnunciaUT2.pdf",
+    "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones",
+    "300 Facultad/Materias/Estadistica",
     "500 Proyectos/Chaos Monkey Project.md",
     "100 Index/Curso Kubernetes.md",
-    "100 Index/Networking Learning Plan.md",
     "500 Proyectos/HELA2/Data Analysis.md",
     "500 Proyectos/HELA2/NOTAS_HELA2.md",
     "500 Proyectos/Notas Informe Grafos.md",
@@ -328,15 +342,6 @@
     "000 img/Pasted image 20250516162325.png",
     "300 Facultad/Materias/DB.md",
     "500 Proyectos/Neuroevolución.md",
-    "400 Coding/Manipulación de listas en Python.md",
-    "img",
-    "000 img",
-    "301 Cursos/Practical DL for Coders",
-    "301 Cursos",
-    "400 Coding/Cursos/Practical DL for Coders",
-    "400 Coding/Cursos",
-    "600 Libros/Notas",
-    "600 Libros",
     "200 Facultad/Materias/Sin título.canvas"
   ]
 }
