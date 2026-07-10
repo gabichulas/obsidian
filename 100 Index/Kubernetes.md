@@ -1,8 +1,8 @@
 10-7-2026
 **Clase**: [[Cloud Engineering]]
-**Temas**: #k8s #docker #containers
+**Temas**: #k8s #docker #containers #devops
 
-**Estado**: #baby 
+**Estado**: #wip
 
 ---
 
