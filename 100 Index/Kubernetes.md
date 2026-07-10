@@ -120,9 +120,52 @@ spec:
     - containerPort: 80
 ```
 
+
 Podemos notar muchas diferencias con el anterior manifiesto:
 
-- **env**: Podemos definir variables de entorno dentro del contenedor. Se nos permite hardcodear el valor u obtenerlo dinámicamente, como se hace en [DD_AGENT_HOST]()
+### env
+
+```yaml
+# ... (previous pod specs)
+    env:
+    - name: MI_VARIABLE
+      value: "pelado"
+    - name: MI_OTRA_VARIABLE
+      value: "pelade"
+    - name: DD_AGENT_HOST
+      # ---> NOTE: Esto captura dinámicamente el valor de la IP del host. <---
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+```
+
+En este bloque definimos variables de entorno dentro del container. Podemos hardcodear los valores u obtenerlos dinámicamente como en `DD_AGENT_HOST`.
+
+### resources
+
+```yaml
+# ... (previous config)
+    resources:
+      # Guaranteed resources for the container
+      requests:
+        memory: "64Mi"
+        cpu: "200m"
+      # Maximum allowed resources
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+```
+
+En el bloque `resources` definimos, valga la redundancia, los recursos asignados a este contenedor. Vemos dos formas de hacerlo:
+
+- **requests**: Lo que el contenedor tiene garantizado. No puede tener menos de 64MB de RAM y 200 Milicores.
+- **limits**: El máximo que puede utilizar. Si usara más de esto, el propio kernel de Linux mataría estos contenedores.
+
+> [!note]
+> 1 Core = 1000 Milicores
+
+
+
 ```dataview
 TABLE WITHOUT ID
   map(file.inlinks, (x) => link(x)) AS "🔗 Referencias"
