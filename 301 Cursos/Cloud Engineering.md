@@ -1,8 +1,7 @@
 
 Curso de 6 meses dictado por la Fundación Educativa Santísima Trinidad. Incluye los siguientes módulos:
 
-
-
+![[PROGRAMA CLOUD 2026.pdf]]
 
 
 
