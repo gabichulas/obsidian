@@ -165,6 +165,31 @@ En el bloque `resources` definimos, valga la redundancia, los recursos asignados
 > 1 Core = 1000 Milicores
 
 
+### probes
+
+```yaml
+# ... (previous config)
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 80
+      # Wait 5 seconds before checking
+      initialDelaySeconds: 5
+      periodSeconds: 10
+    livenessProbe:
+      tcpSocket:
+        port: 80
+      initialDelaySeconds: 15
+      periodSeconds: 20
+```
+
+K8s necesita saber cómo y cuándo determinar que el contenedor está *READY* y *ALIVE*. 
+
+Con `readinessProbe` le decimos qué hacer para saber si el container está listo. En este caso, K8s espera 5 segundos (`initialDelaySeconds`) desde que el container se deployea y envía requests HTTP (`httpGet`) cada 10 segundos (`periodSeconds`) hasta obtener un código 200 OK.
+
+Para saber si el container está vivo, establecemos `livenessProbe`, que le ordena a K8s intentar establecer una conexión TCP (`tcpSocket`) con el contenedor cada 20 segundos, luego de haber esperado 15 segundos desde el despliegue.
+
+
 
 ```dataview
 TABLE WITHOUT ID
