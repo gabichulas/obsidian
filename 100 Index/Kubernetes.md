@@ -6,6 +6,12 @@
 
 ---
 
+# Índice
+
+- [Ganado](#Ganado)
+
+
+# Ganado
 
 
 ```dataview
