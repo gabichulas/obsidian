@@ -5,7 +5,7 @@
 **Progreso Actual:** [Módulo 1 en progreso]
 
 **Roadmap:**
-- [ ] **Mód 1:** Fundamentos y Arquitectura (Control Plane vs Worker Nodes).
+- [x] **Mód 1:** Fundamentos y Arquitectura (Control Plane vs Worker Nodes).
 - [ ] **Mód 2:** Pods y Namespaces (Unidad mínima, límites, OOMKilled).
 - [ ] **Mód 3:** Workloads y Resiliencia (Deployments, ReplicaSets, DaemonSets, Probes).
 - [ ] **Mód 4:** Redes y Services (ClusterIP, NodePort, LoadBalancer, CNI).

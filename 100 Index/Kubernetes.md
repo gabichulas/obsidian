@@ -10,12 +10,15 @@
 - [Ganado](#Ganado)
 - [Arquitectura del Cluster](#Arquitectura%20del%20Cluster)
 
+---
 # Ganado
 
 El problema con Docker puro o Docker Compose es cuando tenemos que escalar. Correr 10 o 20 instancias a mano o con scripts y mantenerlas se vuelve problemático. Para solucionar esto, pasamos a pensar en las instancias como ganado, en vez de mascotas.
 
 - **Mascotas:** Servidores que cuidás, tienen nombre propio. Si se enferman o se caen, no querés que mueran y tratás de arreglarlos.
 - **Ganado:** Instancias efímeras y descartables. Si una vaca (instancia) muere, mucho no te importa porque simplemente levantás otra. Kubernetes es un orquestador que automatiza esto.
+
+---
 
 # Arquitectura del Cluster
 
@@ -27,12 +30,12 @@ Un cluster se divide en dos grandes partes: el Control Plane y los Workers.
 
 ![[Pasted image 20260710134205.png]]
 
-
+---
 # Namespaces
 
 Son divisiones lógicas dentro del cluster. Sirven para separar recursos de distintas aplicaciones o entornos. Por defecto, K8s trae algunos preconfigurados, como `default` o `kube-system`. `kube-system` es súper importante porque está reservado para los procesos internos del propio Kubernetes.
 
-
+---
 # Pods
 
 En K8s NO corremos contenedores de Docker directamente, sino que la unidad mínima es el Pod. Un Pod es un set de contenedores. Es muy probable que corramos un solo contenedor por Pod, pero se pueden poner más. 
@@ -188,6 +191,11 @@ K8s necesita saber cómo y cuándo determinar que el contenedor está *READY* y 
 Con `readinessProbe` le decimos qué hacer para saber si el container está listo. En este caso, K8s espera 5 segundos (`initialDelaySeconds`) desde que el container se deployea y envía requests HTTP (`httpGet`) cada 10 segundos (`periodSeconds`) hasta obtener un código 200 OK.
 
 Para saber si el container está vivo, establecemos `livenessProbe`, que le ordena a K8s intentar establecer una conexión TCP (`tcpSocket`) con el contenedor cada 20 segundos, luego de haber esperado 15 segundos desde el despliegue.
+
+---
+
+# Deployments
+
 
 
 
