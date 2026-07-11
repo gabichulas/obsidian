@@ -468,7 +468,7 @@ El CNI básicamente arma una red virtual por encima de la red física. Los Pods 
 
 ---
 
-# Servicios
+# Service
 
 
 ```dataview
