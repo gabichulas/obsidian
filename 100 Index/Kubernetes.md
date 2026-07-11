@@ -461,9 +461,10 @@ K8s exige esta regla, pero no trae la herramienta para implementarla por defecto
 
 ## Pod Networking
 
-Para lograr que los Pods se comuniquen entre distintos workers Calico despliega un agente en todos los nodos (osea, un [DaemonSet](#DaemonSet)]). Cuando K8s levanta un Pod, el agente local le asigna una IP privada única (ej: 10.0.10.34). Para conectar dos Pods en distintos servidores, Calico manipula las tablas de ruteo del sistema operativo (el host físico). Crea rutas (`ip route`) que le dicen a la máquina física: "todo paquete que busque la IP 10.0.10.37, mandalo directo a la IP pública/privada del Worker de enfrente". Toda esta topología (quién tiene qué IP y dónde) se guarda y sincroniza a través de `etcd`.
+Para lograr que los Pods se comuniquen entre distintos workers Calico despliega un agente en todos los nodos (osea, un [DaemonSet](#DaemonSet)). Cuando K8s levanta un Pod, el agente local le asigna una IP privada única (ej: 10.0.10.34). Para conectar dos Pods en distintos servidores, Calico manipula las tablas de ruteo del sistema operativo (el host físico). Crea rutas (`ip route`) que le dicen a la máquina física: "todo paquete que busque la IP 10.0.10.37, mandalo directo a la IP pública/privada del Worker de enfrente". Toda esta topología (quién tiene qué IP y dónde) se guarda y sincroniza a través de `etcd`.
 
-Nota El CNI básicamente arma una red virtual (túneles) por encima de la red física. Los Pods sienten que están conectados al mismo switch, sin importar en qué máquina física estén corriendo realmente.
+> [!]
+El CNI básicamente arma una red virtual por encima de la red física. Los Pods sienten que están conectados al mismo switch, sin importar en qué máquina física estén corriendo realmente.
 
 
 ```dataview
