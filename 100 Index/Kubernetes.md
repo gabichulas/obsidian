@@ -287,9 +287,61 @@ A partir de `spec:` empiezan las instrucciones para el Controller Manager de K8s
 
 ---
 
-# Daemonset
+# DaemonSet
 
+Este `kind` es muy similar a un [Deployment](#Deployments). El objetivo de un DaemonSet es desplegar solo UN Pod en cada uno de los nodos.
 
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        env:
+        - name: MI_VARIABLE
+          value: "pelado"
+        - name: MI_OTRA_VARIABLE
+          value: "pelade"
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        ports:
+        - containerPort: 80
+```
+
+Vemos que, en el archivo YAML, la única diferencia con el Deployment es el `kind` y la ausencia del parámetro `replicas`. Esto se debe a que no nos interesan las réplicas, solo queremos exactamente un Pod en cada nodo.
+
+---
 
 
 
