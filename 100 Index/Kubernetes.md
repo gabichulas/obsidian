@@ -466,6 +466,10 @@ Para lograr que los Pods se comuniquen entre distintos workers Calico despliega 
 > [!tip]
 El CNI básicamente arma una red virtual por encima de la red física. Los Pods sienten que están conectados al mismo switch, sin importar en qué máquina física estén corriendo realmente.
 
+---
+
+# Servicios
+
 
 ```dataview
 TABLE WITHOUT ID
