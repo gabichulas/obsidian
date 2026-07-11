@@ -9,6 +9,14 @@
 
 - [Ganado](#Ganado)
 - [Arquitectura del Cluster](#Arquitectura%20del%20Cluster)
+- [Namespaces](#Namespaces)
+- [Pods](#Pods)
+	- [env](#env)
+	- [resources](#resources)
+	- [probes](#probes)
+- [Deployments](#Deployments)
+	- [Anatomía del Deployment](#Anatom%C3%ADa%20del%20Deployment)
+- [Daemonset](#Daemonset)
 
 ---
 # Ganado
@@ -126,7 +134,7 @@ spec:
 
 Podemos notar muchas diferencias con el anterior manifiesto:
 
-### env
+## env
 
 ```yaml
 # ... (previous pod specs)
@@ -144,7 +152,7 @@ Podemos notar muchas diferencias con el anterior manifiesto:
 
 En este bloque definimos variables de entorno dentro del container. Podemos hardcodear los valores u obtenerlos dinámicamente como en `DD_AGENT_HOST`.
 
-### resources
+## resources
 
 ```yaml
 # ... (previous config)
@@ -168,7 +176,7 @@ En el bloque `resources` definimos, valga la redundancia, los recursos asignados
 > 1 Core = 1000 Milicores
 
 
-### probes
+## probes
 
 ```yaml
 # ... (previous config)
@@ -252,7 +260,36 @@ spec:
 ```
 
 
-Como vemos, el archivo es *muy* similar al anterior `pod.yaml`, de hecho, el contenido dentro del segundo `spec` es exactamente el mismo. Las únicas diferencias son la cantidad de réplicas deseadas y otros parámetros propios del `kind: Deployment`.
+Como vemos, el archivo es *muy* similar al anterior `pod.yaml`.
+
+## Anatomía del Deployment
+
+**1. Cabecera y Metadata del Deployment**
+
+- `apiVersion: apps/v1` y `kind: Deployment`: Le decimos a la API de K8s exactamente qué tipo de objeto queremos crear y a qué grupo de la API pertenece. Los Deployments viven en `apps/v1`, a diferencia de un Pod simple que vive en `v1`.
+
+- `metadata`: Contiene los datos para identificar al controlador. En este caso, si hacés un `kubectl get deployments`, lo vas a ver listado como `nginx-deployment`.
+
+**2. El Spec del Deployment** 
+A partir de `spec:` empiezan las instrucciones para el Controller Manager de K8s.
+
+- `replicas: 2`: Acá está la magia de la alta disponibilidad. Le estamos diciendo: _"No me importa qué pase, asegurate de que SIEMPRE haya exactamente 2 Pods corriendo"_. Si borrás uno a mano, el Deployment levanta otro.
+
+**3. Selector**
+
+- `selector` -> `matchLabels`: Un Deployment en realidad no "posee" a los Pods, sino que los "vigila" basándose en labels. Acá le decimos al Deployment: _"Tu trabajo es vigilar y contar todos los Pods en el clúster que tengan la etiqueta `app: nginx`"_. Si cuenta menos de 2, levanta más. Si cuenta 3, mata uno.
+
+**4. Template**
+
+- `template`: Define la estructura de los Pods que van a crearse.
+
+- `metadata` -> `labels`: Al crear el Pod usando este molde, le asigna la etiqueta `app: nginx`.
+
+---
+
+# Daemonset
+
+
 
 
 
