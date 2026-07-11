@@ -449,8 +449,21 @@ Es un template que Kubernetes usa para pedirle almacenamiento a la infraestructu
 
 ![[Pasted image 20260711142647.png]]
 
+En Docker, los contenedores viven en una red interna aislada dentro del servidor físico. Si queremos que dos contenedores en distintos servidores se comuniquen, hay que exponer puertos a las IPs públicas, lo cual no es escalable. K8s soluciona esto imponiendo una regla estricta:
 
+1. Cada Pod tiene su propia IP única en todo el clúster.
 
+2. Cualquier Pod debe poder comunicarse con otro Pod, en cualquier nodo, sin usar NAT.
+
+## CNI y Calico 
+
+K8s exige esta regla, pero no trae la herramienta para implementarla por defecto. Para esto existe el CNI (*Container Network Interface*), un estándar que permite instalar plugins de red de terceros. En el ejemplo usamos Calico.
+
+## Pod Networking
+
+Para lograr que los Pods se comuniquen entre distintos workers Calico despliega un agente en todos los nodos (osea, un [DaemonSet](#DaemonSet)]). Cuando K8s levanta un Pod, el agente local le asigna una IP privada única (ej: 10.0.10.34). Para conectar dos Pods en distintos servidores, Calico manipula las tablas de ruteo del sistema operativo (el host físico). Crea rutas (`ip route`) que le dicen a la máquina física: "todo paquete que busque la IP 10.0.10.37, mandalo directo a la IP pública/privada del Worker de enfrente". Toda esta topología (quién tiene qué IP y dónde) se guarda y sincroniza a través de `etcd`.
+
+Nota El CNI básicamente arma una red virtual (túneles) por encima de la red física. Los Pods sienten que están conectados al mismo switch, sin importar en qué máquina física estén corriendo realmente.
 
 
 ```dataview
