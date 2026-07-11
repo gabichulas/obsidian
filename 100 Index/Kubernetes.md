@@ -443,6 +443,9 @@ Es un template que Kubernetes usa para pedirle almacenamiento a la infraestructu
 
 - `storageClassName`: Un _StorageClass_ actúa como un driver para un proveedor específico. `do-block-storage` le indica a Kubernetes que se conecte automáticamente a la API de DigitalOcean, cree un disco virtual real de 5GB y lo asigne a la instancia donde va a correr el Pod.
 
+
+
+
 ```dataview
 TABLE WITHOUT ID
   map(file.inlinks, (x) => link(x)) AS "🔗 Referencias"
