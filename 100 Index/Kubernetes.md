@@ -196,6 +196,63 @@ Para saber si el container está vivo, establecemos `livenessProbe`, que le orde
 
 # Deployments
 
+Desplegar pods sueltos no es una buena práctica. De esta forma, sería muy engorroso y no podemos definir réplicas ni decirle a K8s que recree un pod si este muere.
+
+Para solucionar esto, usamos un **Deployment**. Un Deployment es, básicamente, un template de los pods que se van a crear. La diferencia con un Pod es que podemos indicar cuántas réplicas queremos, entre otras cosas.
+
+Ejemplo:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        env:
+        - name: MI_VARIABLE
+          value: "pelado"
+        - name: MI_OTRA_VARIABLE
+          value: "pelade"
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        ports:
+        - containerPort: 80
+```
+
+
+Como vemos, el archivo es *muy* similar al anterior `pod.yaml`, de hecho, el contenido dentro del segundo `spec` es exactamente el mismo. Las únicas diferencias son la cantidad de réplicas deseadas y otros parámetros propios del `kind: Deployment`.
 
 
 
