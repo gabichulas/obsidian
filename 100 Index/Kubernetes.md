@@ -390,9 +390,7 @@ Vamos a desglosar esto:
 
 A diferencia de un Deployment, el StatefulSet necesita mantener un orden y una identidad de red estable para cada réplica.
 
-YAML
-
-```
+```yaml
 # ... (metadata and selector)
   # Links the StatefulSet to a Headless Service
   serviceName: "my-frontend"
@@ -400,15 +398,12 @@ YAML
 ```
 
 - `serviceName`: Los StatefulSets se apoyan en un tipo especial de Service llamado "Headless Service". Esto permite que los Pods no tengan nombres aleatorios como `mypod-7db6d8-5z7qx`, sino nombres secuenciales y predecibles: `my-csi-app-set-0`, `my-csi-app-set-1`, etc. Este parámetro vincula el StatefulSet con ese servicio para que cada Pod obtenga un registro DNS interno único (ej. `my-csi-app-set-0.my-frontend.default.svc.cluster.local`).
-    
 
-**2. Montaje en el Contenedor (`volumeMounts`)**
+**2. `volumeMounts`**
 
 Esto le indica al contenedor dónde va a inyectar el disco físico que Kubernetes le asigne.
 
-YAML
-
-```
+```yaml
 # ... (inside container spec)
         volumeMounts:
         # The path inside the container
@@ -417,16 +412,16 @@ YAML
           name: csi-pvc
 ```
 
-- `mountPath`: Es la ruta interna del sistema de archivos de tu contenedor (Busybox en este caso) donde van a vivir los archivos persistentes. Si el contenedor escribe algo en `/data`, se estará guardando físicamente en el disco externo.
-    
+- `mountPath`: Es la ruta interna del sistema de archivos de tu contenedor donde van a vivir los archivos persistentes. Si el contenedor escribe algo en `/data`, se estará guardando físicamente en el disco externo.
+
 - `name`: Es el identificador lógico del volumen. Debe coincidir exactamente con el nombre que definimos más abajo en el template.
-    
 
-**3. La Magia de la Persistencia (`volumeClaimTemplates`)** Esta es la diferencia más bestial con un Deployment. `volumeClaimTemplates` es un "molde" (template) que Kubernetes usa para pedirle almacenamiento a la infraestructura.
 
-YAML
+**3. `volumeClaimTemplates`** 
 
-```
+Es un template que Kubernetes usa para pedirle almacenamiento a la infraestructura.
+
+```yaml
   volumeClaimTemplates:
   - metadata:
       name: csi-pvc
@@ -442,11 +437,11 @@ YAML
       storageClassName: do-block-storage
 ```
 
-- `accessModes` -> `ReadWriteOnce`: Define los permisos físicos del disco. `ReadWriteOnce` (a menudo abreviado como RWO) significa que el disco permite lectura y escritura, pero solo puede estar montado en **un único nodo físico a la vez**.
-    
+- `accessModes` -> `ReadWriteOnce`: Define los permisos físicos del disco. `ReadWriteOnce` significa que el disco permite lectura y escritura, pero solo puede estar montado en **un único nodo físico a la vez**.
+
 - `storage`: Estamos declarando que necesitamos un disco de 5 Gigabytes de capacidad.
-    
-- `storageClassName`: Esta es la pieza clave para la automatización en la nube. Un _StorageClass_ actúa como un driver para un proveedor específico. En el ejemplo del video, `do-block-storage` le indica a Kubernetes que se conecte automáticamente a la API de DigitalOcean, cree un disco virtual real de 5GB y lo asigne (attache) a la instancia donde va a correr el Pod. No hace falta que vayas al panel web de DigitalOcean a crear el disco a mano; K8s lo hace por vos.
+
+- `storageClassName`: Un _StorageClass_ actúa como un driver para un proveedor específico. `do-block-storage` le indica a Kubernetes que se conecte automáticamente a la API de DigitalOcean, cree un disco virtual real de 5GB y lo asigne a la instancia donde va a correr el Pod.
 
 ```dataview
 TABLE WITHOUT ID
