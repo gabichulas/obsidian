@@ -343,7 +343,46 @@ Vemos que, en el archivo YAML, la única diferencia con el Deployment es el `kin
 
 ---
 
+# StatefulSet
 
+Los Pods que creamos antes son *Stateless*. Si quisieramos que esto no fuera así, igual que en Docker, necesitamos asignarle un **volúmen**. Esto podemos hacerlo mediante un **StatefulSet**.
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: my-csi-app-set
+spec:
+  selector:
+    matchLabels:
+      app: mypod
+  serviceName: "my-frontend"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mypod
+    spec:
+      containers:
+      - name: my-frontend
+        image: busybox
+        args:
+        - sleep
+        - infinity
+        volumeMounts:
+        - mountPath: "/data"
+          name: csi-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: csi-pvc
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 5Gi
+      storageClassName: do-block-storage
+```
 
 ```dataview
 TABLE WITHOUT ID
