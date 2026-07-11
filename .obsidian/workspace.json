@@ -228,8 +228,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -250,6 +249,7 @@
   },
   "active": "c45d6e7a5cea88a0",
   "lastOpenFiles": [
+    "000 img/Pasted image 20260711174206.png",
     "000 img/Pasted image 20260711142647.png",
     "301 Cursos/Curso Kubernetes.md",
     "100 Index/Kubernetes.md",
@@ -296,7 +296,6 @@
     "000 img/Pasted image 20251112175612.png",
     "000 img/WhatsApp Image 2025-11-11 at 17.06.49.jpeg",
     "000 img/WhatsApp Image 2025-11-11 at 17.06.44.jpeg",
-    "000 img/Pasted image 20251112170232.png",
     "200 Facultad/Materias/Sin título.canvas"
   ]
 }

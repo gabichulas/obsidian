@@ -470,7 +470,7 @@ El CNI básicamente arma una red virtual por encima de la red física. Los Pods 
 
 # Service
 
-
+![[Pasted image 20260711174206.png]]
 ```dataview
 TABLE WITHOUT ID
   map(file.inlinks, (x) => link(x)) AS "🔗 Referencias"
