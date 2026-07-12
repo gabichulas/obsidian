@@ -682,8 +682,7 @@ Si quisieramos acceder a un Pod de la `v2`:
 curl http://{IP-PUBLICA}/v2
 ```
 
-
-
+---
 
 
 
