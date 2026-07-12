@@ -2,8 +2,6 @@
 **Clase**: [[]]
 **Temas**: 
 
-**Estado**: #baby 
-
 ---
 
 

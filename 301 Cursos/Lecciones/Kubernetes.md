@@ -2,8 +2,6 @@
 **Clase**: [[Cloud Engineering]]
 **Temas**: #k8s #docker #containers #devops
 
-**Estado**: #wip
-
 ---
 # Índice
 

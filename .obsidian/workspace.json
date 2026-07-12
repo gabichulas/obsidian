@@ -73,7 +73,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "100 Index/Kubernetes.md",
+                "file": "301 Cursos/Lecciones/Kubernetes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -250,11 +250,13 @@
   },
   "active": "c45d6e7a5cea88a0",
   "lastOpenFiles": [
+    "301 Cursos/Cloud Engineering.md",
+    "301 Cursos/Curso Kubernetes.md",
+    "301 Cursos/Practical DL for Coders.md",
+    "301 Cursos/Lecciones/Kubernetes.md",
+    "999 Plantillas/Clase.md",
     "000 img/Pasted image 20260711174206.png",
     "000 img/Pasted image 20260711142647.png",
-    "301 Cursos/Curso Kubernetes.md",
-    "100 Index/Kubernetes.md",
-    "301 Cursos/Cloud Engineering.md",
     "301 Cursos/Lecciones/Lesson 7.md",
     "100 Index/().md",
     "500 Proyectos/Demix/Bitácora.md",
@@ -269,7 +271,6 @@
     "100 Index/Untitled Kanban.md",
     "301 Cursos/Lecciones",
     "000 img/PROGRAMA CLOUD 2026.pdf",
-    "301 Cursos/Practical DL for Coders.md",
     "400 Coding/Networking Learning Plan.md",
     "100 Index/SRE Handbook.md",
     "100 Index/Paracosmos.md",
@@ -296,7 +297,6 @@
     "000 img/Pasted image 20251112180347.png",
     "000 img/Pasted image 20251112175612.png",
     "000 img/WhatsApp Image 2025-11-11 at 17.06.49.jpeg",
-    "000 img/WhatsApp Image 2025-11-11 at 17.06.44.jpeg",
     "200 Facultad/Materias/Sin título.canvas"
   ]
 }
