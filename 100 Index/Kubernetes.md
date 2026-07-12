@@ -476,6 +476,28 @@ Cada Pod obtiene su propia dirección IP, sin embargo, en un Deployment, el conj
 
 Esto conlleva un problema: si un conjunto de Pods (llamémoslos "backends") provee funcionalidad a otros Pods (llamémoslos "frontends") dentro de tu cluster, ¿de qué manera los frontends encuentran y tienen seguimiento de cuál dirección IP conectarse, para que el frontend pueda usar la parte del backend de la carga de trabajo?
 
+En Kubernetes, un Service es una abstracción que define un conjunto lógico de Pods y una política por la cual acceder a ellos. El conjunto de Pods a los que apunta un Servicio se determina usualmente por un Selector.
+
+## Definición de un Service
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mi-servicio
+spec:
+  selector:
+    app.kubernetes.io/name: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+```
+
+Esta especificación crea un nuevo objeto Service llamado "mi-servicio", que apunta via TCP al puerto 9376 de cualquier Pod con la etiqueta `app.kubernetes.io/name=MyApp`.
+
+
+
 ![[Pasted image 20260711174206.png]]
 ```dataview
 TABLE WITHOUT ID
