@@ -494,9 +494,48 @@ spec:
       targetPort: 9376
 ```
 
+A este Service se le asigna una IP virtual fija (`ClusterIP`). El controlador escanea continuamente qué Pods coinciden con el `selector` definido y actualiza una lista en un objeto llamado `Endpoints`.
+
 Esta especificación crea un nuevo objeto Service llamado "mi-servicio", que apunta via TCP al puerto 9376 de cualquier Pod con la etiqueta `app.kubernetes.io/name=MyApp`.
 
+## Services sin selectores
 
+Se utilizan para abstraer el acceso a recursos que no son Pods nativos de K8s (por ejemplo, un clúster de base de datos externo o un servicio legacy en otra red). Como no existe un `selector`, el objeto `Endpoints` no se crea automáticamente y el mapeo de la dirección IP y el puerto debe hacerse de forma manual.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mi-servicio
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: mi-servicio
+subsets:
+  - addresses:
+      - ip: 192.0.2.42
+    ports:
+      - port: 9376
+```
+
+> [!note]
+> Por restricciones de seguridad, el servidor API de Kubernetes no permite hacer proxy (ej. `kubectl port-forward`) a Endpoints que no estén mapeados a Pods legítimos.
+
+## Tipos de Service
+
+Los valores `Type` y sus comportamientos son:
+
+- `ClusterIP`: Expone el Service en una dirección IP interna del clúster. Al escoger este valor el Service solo es alcanzable desde el clúster. Este es el `ServiceType` por defecto.
+    
+- [`NodePort`](https://kubernetes.io/es/docs/concepts/services-networking/service/#tipo-nodeport): Expone el Service en cada IP del nodo en un puerto estático (el `NodePort`). Automáticamente se crea un Service `ClusterIP`, al cual enruta el `NodePort`del Service. Podrás alcanzar el Service `NodePort` desde fuera del clúster, haciendo una petición a `<NodeIP>:<NodePort>`.
+    
+- [`LoadBalancer`](https://kubernetes.io/es/docs/concepts/services-networking/service/#loadbalancer): Expone el Service externamente usando el balanceador de carga del proveedor de la nube. Son creados automáticamente Services `NodePort`y `ClusterIP`, a los cuales el apuntará el balanceador externo.
 
 ![[Pasted image 20260711174206.png]]
 ```dataview
