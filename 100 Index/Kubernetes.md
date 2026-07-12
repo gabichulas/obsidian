@@ -538,6 +538,84 @@ Los valores `Type` y sus comportamientos son:
 - [`LoadBalancer`](https://kubernetes.io/es/docs/concepts/services-networking/service/#loadbalancer): Expone el Service externamente usando el balanceador de carga del proveedor de la nube. Son creados automáticamente Services `NodePort`y `ClusterIP`, a los cuales el apuntará el balanceador externo.
 
 ![[Pasted image 20260711174206.png]]
+
+## ¿Para qué?
+
+Si el Pod A quiere hablar con el Pod B, podría usar su IP. Pero si el Pod B muere, la réplica nace con otra IP. El código del Pod A se rompería constantemente. Necesitamos los Services para tener un **punto de encuentro estático**. El Service tiene un nombre DNS y una IP que nunca cambian; su único trabajo es recibir el tráfico y redirigirlo a los Pods reales. Dependiendo de _quién_ necesite acceder a esos Pods, elegimos el tipo de Service.
+
+### Cluster IP
+
+- **Utilidad:** Para la comunicación interna entre tus propios componentes. El mundo exterior no tiene forma de acceder a esta IP.
+
+- **Caso típico:** Tu contenedor de Frontend necesita consultar la API del Backend. Creás un Service `ClusterIP` para el Backend. El Frontend simplemente llama a `http://backend-service` y listo.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 80        # Service port internal to the cluster
+      targetPort: 8080 # App port inside the container
+```
+
+### NodePort 
+
+Expone el servicio hacia el **exterior** del clúster abriendo un puerto estático (en el rango 30000-32767) en la IP física de absolutamente todos los Workers.
+
+- **Utilidad:** Cuando necesitás que un cliente externo al cluster le pegue a la aplicación directamente usando la IP del nodo donde corre Minikube o tus servidores virtuales.
+
+- **Cómo funciona:** Si el puerto asignado es el `30123`, podés ir a tu navegador y escribir `http://IP-DEL-NODO:30123` y el tráfico entrará al clúster directo hacia tus Pods.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30123 # Exposed external port on all nodes
+```
+
+
+### LoadBalancer
+
+Es la evolución de NodePort para entornos de producción.
+
+- **Utilidad:** Para exponer tu aplicación web con una única IP pública dedicada.
+
+- **Cómo funciona:** Al declarar `type: LoadBalancer`, Kubernetes habla con la API del proveedor de nube y contrata un Balanceador de Carga físico en tu cuenta. Este balanceador recibe una IP pública y redirige todo el tráfico hacia los puertos de tus nodos (`NodePort`), que a su vez lo mandan al `ClusterIP` y finalmente a los Pods.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: public-ingress-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: gateway
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+```
+
+---
+
+# Ingress
+
+
 ```dataview
 TABLE WITHOUT ID
   map(file.inlinks, (x) => link(x)) AS "🔗 Referencias"
