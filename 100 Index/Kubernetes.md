@@ -16,7 +16,20 @@
 	- [probes](#probes)
 - [Deployments](#Deployments)
 	- [Anatomía del Deployment](#Anatom%C3%ADa%20del%20Deployment)
-- [Daemonset](#Daemonset)
+- [DaemonSet](#DaemonSet)
+- [StatefulSet](#StatefulSet)
+- [Networking](#Networking)
+	- [CNI y Calico](#CNI%20y%20Calico)
+	- [Pod Networking](#Pod%20Networking)
+- [Service](#Service)
+	- [Definición de un Service](#Definici%C3%B3n%20de%20un%20Service)
+	- [Services sin selectores](#Services%20sin%20selectores)
+	- [Tipos de Service](#Tipos%20de%20Service)
+	- [¿Para qué?](#%C2%BFPara%20qu%C3%A9?)
+		- [Cluster IP](#Cluster%20IP)
+		- [NodePort](#NodePort)
+		- [LoadBalancer](#LoadBalancer)
+- [Ingress](#Ingress)
 
 ---
 # Ganado
@@ -614,6 +627,18 @@ spec:
 ---
 
 # Ingress
+
+En una arquitectura de microservicios, usar el service [LoadBalancer](#LoadBalancer) sería un error. Deberíamos crear un LoadBalancer por cada microservicio, lo cual sería muy ineficiente en términos de:
+
+- **Costos:** Por cada Service, K8s se conecta a la API de tu proveedor de nube y contrata un balanceador.
+
+- **Manejo de IPs:** $N$ IPs públicas distintas para componentes del mismo sistema.
+
+- **Capa 4:** El LoadBalancer crudo trabaja en la Capa 4. No entiende de URLs, dominios, paths ni certificados SSL.
+
+Para solucionar esto, podemos usar un nuevo `kind`: Ingress. 
+
+Ingress es similar a un LoadBalancer
 
 
 ```dataview
