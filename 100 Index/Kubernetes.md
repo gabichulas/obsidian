@@ -470,6 +470,12 @@ El CNI básicamente arma una red virtual por encima de la red física. Los Pods 
 
 # Service
 
+Un Service es el objeto de la API de K8s que describe cómo se accede a las aplicaciones, tal como un conjunto de [Pods](#Pods), y que puede describir puertos y balanceadores de carga.
+
+Cada Pod obtiene su propia dirección IP, sin embargo, en un Deployment, el conjunto de Pods corriendo en un momento dado puede ser diferente al conjunto de Pods corriendo esa aplicación un momento después.
+
+Esto conlleva un problema: si un conjunto de Pods (llamémoslos "backends") provee funcionalidad a otros Pods (llamémoslos "frontends") dentro de tu cluster, ¿de qué manera los frontends encuentran y tienen seguimiento de cuál dirección IP conectarse, para que el frontend pueda usar la parte del backend de la carga de trabajo?
+
 ![[Pasted image 20260711174206.png]]
 ```dataview
 TABLE WITHOUT ID
