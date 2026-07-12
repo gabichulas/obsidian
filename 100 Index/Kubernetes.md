@@ -638,7 +638,53 @@ En una arquitectura de microservicios, usar el service [LoadBalancer](#LoadBalan
 
 Para solucionar esto, podemos usar un nuevo `kind`: Ingress. 
 
-Ingress es similar a un LoadBalancer
+Su ventaja fundamental es que opera en la Capa 7. Esto te permite tener **un único** punto de entrada público que recibe todo el tráfico. Para que K8s entienda este recurso, hay que instalar un Ingress Controller en el cluster, siendo NGINX el más estándar. Este controlador lee los manifiestos Ingress y autoconfigura sus reglas de ruteo.
+
+> [!important]
+> Cuando se instala el Ingress Controller, también se crea un [LoadBalancer](#LoadBalancer), el cual tiene una IP pública asignada. Al aplicar un manifiesto de tipo Ingress, se le asigna esa misma IP pública, ya que este hará uso de ese LB.
+
+El pro de poder usar la Capa 7 es que ahora no es necesario contratar $N$ LBs, ya que ingress puede acceder a los pods usando rutas HTTP:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-app
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /v1
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-v1
+            port:
+              number: 8080
+      - path: /v2
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-v2
+            port:
+              number: 8080
+```
+
+Si quisieramos acceder a un Pod de la `v1`:
+
+```sh
+curl http://{IP-PUBLICA}/v1
+```
+
+Si quisieramos acceder a un Pod de la `v2`:
+
+```sh
+curl http://{IP-PUBLICA}/v2
+```
+
+
+
+
 
 
 ```dataview
