@@ -73,13 +73,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "301 Cursos/Lecciones/Kubernetes.md",
+                "file": "100 Index/Ansible.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Kubernetes"
+              "title": "Ansible"
             }
           }
         ],
@@ -250,10 +250,11 @@
   },
   "active": "c45d6e7a5cea88a0",
   "lastOpenFiles": [
+    "301 Cursos/Lecciones/Kubernetes.md",
+    "100 Index/Ansible.md",
     "301 Cursos/Cloud Engineering.md",
     "301 Cursos/Curso Kubernetes.md",
     "301 Cursos/Practical DL for Coders.md",
-    "301 Cursos/Lecciones/Kubernetes.md",
     "999 Plantillas/Clase.md",
     "000 img/Pasted image 20260711174206.png",
     "000 img/Pasted image 20260711142647.png",
@@ -291,7 +292,6 @@
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones",
     "500 Proyectos/Chaos Monkey Project.md",
     "500 Proyectos/HELA2/Data Analysis.md",
-    "500 Proyectos/HELA2/NOTAS_HELA2.md",
     "000 img/Pasted image 20260328173001.png",
     "000 img/Pasted image 20251112180402.png",
     "000 img/Pasted image 20251112180347.png",
