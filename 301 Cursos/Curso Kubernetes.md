@@ -10,4 +10,4 @@
 - [x] **Mód 3:** Workloads y Resiliencia (Deployments, ReplicaSets, DaemonSets, Probes).
 - [x] **Mód 4:** Redes y Services (ClusterIP, NodePort, LoadBalancer, CNI).
 - [x] **Mód 5:** Ingress (Exposición HTTP/HTTPS, NGINX Controller).
-- [ ] **Mód 6:** Persistencia y Configuración (PV/PVC, StatefulSets, ConfigMaps, Secrets).
+- [x] **Mód 6:** Persistencia y Configuración (PV/PVC, StatefulSets, ConfigMaps, Secrets).
