@@ -9,7 +9,6 @@ kanban-plugin: board
 - [ ] Ejecutar benchmark de tiempos con ViT en Kaggle
 - [ ] Generar subset final estratificado en local. Subirlo
 - [ ] Ajustar arquitecturas con número similar de parámetros
-- [ ] Entrenar U-Net en Kaggle
 - [ ] Entrenar ViT en Kaggle
 - [ ] Programar script de inferencia e ISTFT
 - [ ] Calcular métricas de evaluación y guardar en CSV
@@ -19,6 +18,7 @@ kanban-plugin: board
 
 ## Working
 
+- [ ] Entrenar U-Net en Kaggle
 
 
 ## Testing
