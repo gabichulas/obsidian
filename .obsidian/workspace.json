@@ -11,10 +11,15 @@
             "id": "e76b588c33dbd6d2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "500 Proyectos/Emulador CHIP-8.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "Nueva pestaña"
+              "title": "Emulador CHIP-8"
             }
           }
         ]
@@ -184,11 +189,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0b76fa412430bd01",
+  "active": "e76b588c33dbd6d2",
   "lastOpenFiles": [
     "500 Proyectos/Chiptune Visualizer & Interactive Pixel Art.md",
-    "500 Proyectos/Demix/Kanban.md",
     "500 Proyectos/Emulador CHIP-8.md",
+    "500 Proyectos/Demix/Kanban.md",
     "500 Proyectos/Demix/Demix Cloud.md",
     "500 Proyectos/Neuroevolución.md",
     "100 Index/Ansible.md",
