@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "100 Index/CISSP Security Domains.md",
+                "file": "301 Cursos/Google Cybersecurity Career Path.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CISSP Security Domains"
+              "title": "Google Cybersecurity Career Path"
             }
           }
         ]
@@ -192,9 +192,9 @@
   },
   "active": "6b54db637be4dfc7",
   "lastOpenFiles": [
-    "000 img/Pasted image 20260909142417.png",
-    "301 Cursos/Google Cybersecurity Career Path.md",
     "100 Index/CISSP Security Domains.md",
+    "301 Cursos/Google Cybersecurity Career Path.md",
+    "000 img/Pasted image 20260909142417.png",
     "500 Proyectos/Emulador CHIP-8.md",
     "999 Plantillas/Clase.md",
     "301 Cursos/Cloud Engineering.md",
@@ -238,7 +238,6 @@
     "000 img/Pasted image 20251112180402.png",
     "000 img/Pasted image 20251112180347.png",
     "000 img/Pasted image 20251112175612.png",
-    "000 img/WhatsApp Image 2025-11-11 at 17.06.49.jpeg",
     "200 Facultad/Materias/Sin título.canvas"
   ]
 }
