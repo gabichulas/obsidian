@@ -1,4 +1,3 @@
-{{date}} {{time}}
 **Clase**: [[]]
 **Temas**: 
 
