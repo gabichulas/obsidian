@@ -36,23 +36,25 @@
 
 ### LazyVim: Atajos Clave (Tecla Líder: `<Space>`)
 
-| Comando | Acción |
-| :--- | :--- |
-| `<Space> e` | Abrir/Cerrar explorador de archivos (Neo-tree) |
-| `<Space> f f` | Buscar archivos por nombre (Telescope) |
-| `<Space> s g` | Buscar texto en todo el proyecto (Live Grep) |
-| `<Space> c a` | Acciones de código del linter (Code Actions) |
-| `<Space> c f` | Formatear el archivo actual (Go fmt) |
-| `<Space> x x` | Mostrar panel de errores y diagnósticos (Trouble) |
-| `s` | Búsqueda rápida y salto visual (Flash) |
-| `K` | (Shift+k) Mostrar documentación bajo el cursor (Hover) |
-| `g d` | Ir a la definición de la función o variable (Go to definition) |
-| `Ctrl + o`, `Ctrl + i` | Volver a la posición anterior, Ir a la posición siguiente |
+| Comando                | Acción                                                         |
+| :--------------------- | :------------------------------------------------------------- |
+| `<Space> e`            | Abrir/Cerrar explorador de archivos (Neo-tree)                 |
+| `<Space> f f`          | Buscar archivos por nombre (Telescope)                         |
+| `<Space> s g`          | Buscar texto en todo el proyecto (Live Grep)                   |
+| `<Space> c a`          | Acciones de código del linter (Code Actions)                   |
+| `<Space> c f`          | Formatear el archivo actual (Go fmt)                           |
+| `<Space> x x`          | Mostrar panel de errores y diagnósticos (Trouble)              |
+| `s`                    | Búsqueda rápida y salto visual (Flash)                         |
+| `K`                    | (Shift+k) Mostrar documentación bajo el cursor (Hover)         |
+| `g d`                  | Ir a la definición de la función o variable (Go to definition) |
+| `Ctrl + o`, `Ctrl + i` | Volver a la posición anterior, Ir a la posición siguiente      |
 
 ### Gestión de Ventanas y Pestañas
 
-| Comando | Acción |
-| :--- | :--- |
-| `:vsp`, `:sp` | Dividir pantalla verticalmente, Dividir pantalla horizontalmente |
-| `Ctrl + w` seguido de `h/j/k/l` | Mover el foco a la ventana izquierda/abajo/arriba/derecha |
-| `Ctrl + w` seguido de `q` | Cerrar la ventana actual |
+| Comando                         | Acción                                                           |
+| :------------------------------ | :--------------------------------------------------------------- |
+| `:vsp`, `:sp`                   | Dividir pantalla verticalmente, Dividir pantalla horizontalmente |
+| `Ctrl + w` seguido de `h/j/k/l` | Mover el foco a la ventana izquierda/abajo/arriba/derecha        |
+| `Ctrl + w` seguido de `q`       | Cerrar la ventana actual                                         |
+| `<Space> f t`, `<Space> f t`    | Abrir terminal en la raiz del proyecto, Abrir terminal en pwd    |
+|                                 |                                                                  |
