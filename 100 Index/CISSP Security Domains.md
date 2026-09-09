@@ -9,6 +9,16 @@ As an analyst, you can explore various areas of cybersecurity that interest you.
 
 # Security and Risk Management
 
+Elements of the security and risk management domain that impact an organization's security posture include:
+
+- Security goals and objectives
+- Risk mitigation process
+- Compliance
+- Business continuity plans
+- Legal regulations
+- Professional and organizational ethics
+
+
 
 ```dataview
 TABLE WITHOUT ID
