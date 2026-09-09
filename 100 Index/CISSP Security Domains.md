@@ -26,7 +26,13 @@ InfoSec is also related to this domain and refers to a set of processes establis
 - Cloud security
 - Infrastructure security
 
-Example: a security team may need to alter how parsonally identifiable information (PII) is treated in order to adhere to the 
+Example: a security team may need to alter how parsonally identifiable information (PII) is treated in order to adhere to the GDPR.
+
+---
+
+# Asset Security
+
+
 ```dataview
 TABLE WITHOUT ID
   map(file.inlinks, (x) => link(x)) AS "🔗 Referencias"
