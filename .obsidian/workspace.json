@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "100 Index/Neovim Cheatsheet.md",
+                "file": "301 Cursos/Google Cybersecurity Career Path.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Neovim Cheatsheet"
+              "title": "Google Cybersecurity Career Path"
             }
           }
         ],
@@ -204,8 +204,9 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "5748399fb0586f5c",
+  "active": "0b9178c0eaab55ff",
   "lastOpenFiles": [
+    "100 Index/Neovim Cheatsheet.md",
     "301 Cursos/Google Cybersecurity Career Path.md",
     "300 Facultad/Materias/Sistemas Operativos/10 - Docker.pdf",
     "300 Facultad/Materias/Sistemas Operativos/09 - Virtualización.pdf",
@@ -221,7 +222,6 @@
     "100 Index/CISSP Security Domains.md",
     "000 img/Pasted image 20260909142417.png",
     "500 Proyectos/Emulador CHIP-8.md",
-    "100 Index/Neovim Cheatsheet.md",
     "500 Proyectos/Chiptune Visualizer & Interactive Pixel Art.md",
     "500 Proyectos/Demix/Kanban.md",
     "500 Proyectos/Demix/Demix Cloud.md",
