@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "4f03dd90692a8d02",
+        "id": "a1a24beb887d49e0",
         "type": "tabs",
         "children": [
           {
-            "id": "6b54db637be4dfc7",
+            "id": "4076f50a4f2717c9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "100 Index/CIA Triad.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "CIA Triad"
+              "title": "Nueva pestaña"
             }
           }
         ]
@@ -189,18 +184,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "6b54db637be4dfc7",
+  "active": "0b76fa412430bd01",
   "lastOpenFiles": [
+    "100 Index/Sin título.md",
+    "100 Index/Sin título 1.md",
+    "100 Index/CIA Triad.md",
     "000 img/Pasted image 20260915001153.png",
     "100 Index/CISSP Security Domains.md",
-    "100 Index/CIA Triad.md",
     "301 Cursos/Google Cybersecurity Career Path.md",
-    "100 Index/Sin título 1.md",
     "000 img/Pasted image 20260909142417.png",
     "500 Proyectos/Emulador CHIP-8.md",
     "999 Plantillas/Clase.md",
     "301 Cursos/Cloud Engineering.md",
-    "100 Index/Sin título.md",
     "301 Cursos/Practical DL for Coders.md",
     "301 Cursos/Curso Kubernetes.md",
     "100 Index/Neovim Cheatsheet.md",
@@ -237,7 +232,6 @@
     "000 img/Pasted image 20260328173001.png",
     "000 img/Pasted image 20251112180402.png",
     "000 img/Pasted image 20251112180347.png",
-    "000 img/Pasted image 20251112175612.png",
     "200 Facultad/Materias/Sin título.canvas"
   ]
 }
