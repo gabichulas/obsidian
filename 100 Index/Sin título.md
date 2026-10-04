@@ -27,7 +27,7 @@ Para reducir costos y mejorar la gestión de los respaldos sin comprometer los o
 
 **Eje 1: Monitoreo Proactivo y Alarmas**
 Para evitar la caída en cascada producida por el agotamiento de recursos al esperar respuestas de un microservicio secundario, se debió monitorear la **latencia de las peticiones (Request Duration)** y la **saturación del pool de conexiones (Connection Pool / Active Threads)**.
-*   **Métrica a monitorear:** Peticiones pendientes (`http_requests_pending`) o latencia en el percentil 95/99 (ej. `http_request_duration_seconds_bucket` en Prometheus).
+*   **Métrica a monitorear:** Peticiones pendientes o latencia en el percentil 95/99.
 *   **Umbral de alerta:** Disparar una alarma crítica si el uso del pool de conexiones supera el 85% durante más de 1 minuto, o si el P99 de la latencia supera los 2 segundos. Adicionalmente, el microservicio de procesamiento de pagos debe implementar un patrón de resiliencia como *Circuit Breaker* o *Timeouts* estrictos para abortar las conexiones bloqueadas antes de agotar la memoria.
 
 **Eje 2: Despliegues Inmutables y CI/CD**
@@ -39,7 +39,6 @@ La inmutabilidad establece que un contenedor, una vez construido, jamás debe se
 Generar la imagen inmutable utilizando el hash del commit de Git (o un identificador de pipeline) como etiqueta, garantizando trazabilidad y evitando sobreescribir la etiqueta `latest`.
 
 ```bash
-# Build the immutable image using the Git commit SHA as the tag
 docker build -t digitalpay-service:${GITHUB_SHA} .
 ```
 
@@ -67,7 +66,7 @@ jobs:
           kubectl set image deployment/payments-deployment payments-container=myregistry/digitalpay-service:${{ github.sha }}
 ```
 
-**3. Kubernetes (Estrategia de Actualización):**
+**3. Kubernetes:**
 Para actualizar los Pods sin perder disponibilidad, se debe asegurar que el manifiesto del `Deployment` contenga la estrategia `RollingUpdate`.
 
 ```yaml
