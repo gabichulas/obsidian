@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "100 Index/taskrunner api.md",
+                "file": "100 Index/Neovim Cheatsheet.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "taskrunner api"
+              "title": "Neovim Cheatsheet"
             }
           }
         ]
