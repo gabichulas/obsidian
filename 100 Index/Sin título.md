@@ -11,13 +11,13 @@
 ### Ejercicio 2 - Plan de Recuperación ante Desastres (DRP)
 
 **1. Optimización de la arquitectura hacia Pilot Light**
-La arquitectura actual de Warm Standby incluye un DNS con failover hacia una región secundaria, donde se mantienen permanentemente activos un Application Load Balancer y un grupo de instancias EC2 con capacidad reducida. Para transicionar a una estrategia Pilot Light y reducir costos manteniendo el RPO (<15 min) y RTO (<1 hora), se deben aplicar los siguientes cambios:
-*   **Capa de Cómputo (EC2 y ALB):** Eliminar o apagar las instancias EC2 activas en la región secundaria. El Application Load Balancer también puede ser eliminado para ahorrar costos fijos. Estos recursos deben configurarse mediante Infraestructura como Código (IaC, como Terraform o CloudFormation) para ser aprovisionados o escalados (cambiando la capacidad deseada del Auto Scaling Group de 0 a N) únicamente en el momento en que se declare el desastre. Esto cumple con un RTO de 1 hora.
+La arquitectura actual de Warm Standby incluye un DNS con failover hacia una región secundaria, donde se mantienen permanentemente activos un ALB y un grupo de instancias EC2 con capacidad reducida. Para transicionar a una estrategia Pilot Light y reducir costos manteniendo el RPO (<15 min) y RTO (<1 hora), se deben aplicar los siguientes cambios:
+*   **Capa de Cómputo (EC2 y ALB):** Eliminar o apagar las instancias EC2 activas en la región secundaria. El Application Load Balancer también puede ser eliminado para ahorrar costos fijos. Estos recursos deben configurarse mediante Infraestructura como Código para ser aprovisionados o escalados únicamente en el momento en que se declare el desastre. Esto cumple con un RTO de 1 hora.
 *   **Capa de Datos (RDS y S3):** Mantener la réplica de Amazon RDS y la replicación del bucket de S3 activas de forma continua. En Pilot Light, el núcleo de los datos siempre debe estar encendido y sincronizado para garantizar un RPO menor a 15 minutos. 
 
 **2. Optimización de Backups en la cuenta primaria**
 Para reducir costos y mejorar la gestión de los respaldos sin comprometer los objetivos de recuperación:
-*   **Ciclo de vida y Almacenamiento (Tiering):** Implementar políticas (ej. mediante AWS Backup) que trasladen automáticamente los respaldos antiguos (ej. mayores a 30 días) desde el almacenamiento estándar hacia capas de almacenamiento en frío de menor costo, como Amazon S3 Glacier o Glacier Deep Archive.
+*   **Ciclo de vida y Almacenamiento:** Implementar políticas que trasladen automáticamente los respaldos antiguos (ej. mayores a 30 días) desde el almacenamiento estándar hacia capas de almacenamiento en frío de menor costo, como Amazon S3 Glacier o Glacier Deep Archive.
 *   **Retención:** Definir reglas de expiración definitivas para eliminar los respaldos que superen el marco regulatorio o las necesidades del negocio (ej. eliminar después de 1 o 5 años).
 *   **Pruebas de Restauración:** Automatizar rutinas mensuales o trimestrales que restauren un backup en un entorno aislado para validar la integridad de los datos y medir el tiempo real de recuperación (RTO).
 
