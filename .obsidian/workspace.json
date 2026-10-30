@@ -169,9 +169,19 @@
               "icon": "lucide-list",
               "title": "Esquema"
             }
+          },
+          {
+            "id": "4e4d1eb2c1fa27a1",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -190,7 +200,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6d9ed0c131f091e8",
+  "active": "a0df536ac0872597",
   "lastOpenFiles": [
     "100 Index/Neovim Cheatsheet.md",
     "100 Index/Sin título.md",
