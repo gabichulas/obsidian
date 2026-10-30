@@ -167,26 +167,15 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Esquema de Sin título"
-            }
-          },
-          {
-            "id": "5748399fb0586f5c",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "Esquema"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,7 +190,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a0df536ac0872597",
+  "active": "6d9ed0c131f091e8",
   "lastOpenFiles": [
     "100 Index/Neovim Cheatsheet.md",
     "100 Index/Sin título.md",
