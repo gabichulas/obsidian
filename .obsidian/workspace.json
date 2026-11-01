@@ -26,15 +26,16 @@
             "id": "0b9178c0eaab55ff",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "301 Cursos/Google Cybersecurity Career Path.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "file:/home/gabriel/Descargas/discreta/TEORIA CONGRUENCIA.pdf",
+                "page": 1,
+                "left": -5,
+                "top": 276,
+                "zoom": 2.8546033320931
               },
-              "icon": "lucide-file",
-              "title": "Google Cybersecurity Career Path"
+              "icon": "lucide-file-text",
+              "title": "TEORIA CONGRUENCIA"
             }
           }
         ],
