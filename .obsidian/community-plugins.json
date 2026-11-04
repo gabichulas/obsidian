@@ -3,7 +3,5 @@
   "templater-obsidian",
   "obsidian-meta-bind-plugin",
   "obsidian-git",
-  "obsidian-plugin-toc",
-  "obsidian-kanban",
-  "pdf-plus"
+  "obsidian-plugin-toc"
 ]
