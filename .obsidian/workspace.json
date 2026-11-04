@@ -11,46 +11,13 @@
             "id": "e76b588c33dbd6d2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "500 Proyectos/Emulador CHIP-8.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Emulador CHIP-8"
-            }
-          },
-          {
-            "id": "0b9178c0eaab55ff",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "file:/home/gabriel/Descargas/discreta/TEORIA CONGRUENCIA.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "TEORIA CONGRUENCIA"
-            }
-          },
-          {
-            "id": "ab9106b64d842c69",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vista gráfica"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -212,8 +179,27 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ab9106b64d842c69",
+  "active": "e76b588c33dbd6d2",
   "lastOpenFiles": [
+    "999 Plantillas/Clase.md",
+    "600 Libros/MOC.md",
+    "400 Coding/Networking Learning Plan.md",
+    "999 Plantillas/Books.md",
+    "301 Cursos/Practical DL for Coders.md",
+    "301 Cursos/Google Cybersecurity Career Path.md",
+    "301 Cursos/Curso Kubernetes.md",
+    "301 Cursos/Cloud Engineering.md",
+    "600 Libros/Notas/📚 El Camino de los Reyes.md",
+    "400 Coding/Neovim Cheatsheet.md",
+    "600 Libros/Notas/📚 Untitled.md",
+    "301 Cursos/Lecciones/CIA Triad.md",
+    "100 Index/taskrunner api.md",
+    "100 Index/Sin título.md",
+    "301 Cursos/Lecciones/CISSP Security Domains.md",
+    "400 Coding/Manipulación de listas en Python.md",
+    "600 Libros/Notas/📚 El papel pintado amarillo.md",
+    "600 Libros/Notas/📚 El sobrino del mago (Narnia 1).md",
+    "500 Proyectos/Emulador CHIP-8.md",
     "conflict-files-obsidian-git.md",
     "300 Facultad/Materias/Discreta/2026/tp2.pdf",
     "300 Facultad/Materias/Discreta/2026/tp1.pdf",
@@ -225,37 +211,19 @@
     "300 Facultad/Materias/Discreta/2026/class0.pdf",
     "300 Facultad/Materias/Discreta/2026/Matemática discreta conteo 2026.pdf",
     "300 Facultad/Materias/Discreta/2026/Matemática discreta 2026.pdf",
-    "100 Index/taskrunner api.md",
-    "100 Index/CIA Triad.md",
     "000 img/Pasted image 20260915001153.png",
-    "100 Index/Neovim Cheatsheet.md",
-    "301 Cursos/Google Cybersecurity Career Path.md",
-    "100 Index/Sin título.md",
-    "100 Index/CISSP Security Domains.md",
     "000 img/Pasted image 20260909142417.png",
-    "500 Proyectos/Emulador CHIP-8.md",
     "500 Proyectos/Chiptune Visualizer & Interactive Pixel Art.md",
     "500 Proyectos/Demix/Kanban.md",
     "500 Proyectos/Demix/Demix Cloud.md",
     "500 Proyectos/Neuroevolución.md",
     "100 Index/Ansible.md",
     "500 Proyectos/Chaos Monkey Project.md",
-    "301 Cursos/Curso Kubernetes.md",
-    "301 Cursos/Lecciones/Kubernetes.md",
-    "301 Cursos/Cloud Engineering.md",
-    "301 Cursos/Practical DL for Coders.md",
-    "999 Plantillas/Clase.md",
     "000 img/Pasted image 20260711174206.png",
     "000 img/Pasted image 20260711142647.png",
-    "301 Cursos/Lecciones/Lesson 7.md",
-    "100 Index/().md",
-    "500 Proyectos/Demix/Bitácora.md",
     "000 img/Pasted image 20260710135226.png",
     "000 img/Pasted image 20260710134205.png",
     "000 img/Pasted image 20260710134109.png",
-    "100 Index/Untitled Kanban 3.md",
-    "100 Index/Untitled Kanban 4.md",
-    "100 Index/Untitled Kanban 2.md",
     "300 Facultad/Materias/Estadistica/Ejercicios y Aplicaciones/Sin título.canvas",
     "000 img/Pasted image 20260328173001.png",
     "000 img/Pasted image 20251112180402.png",
