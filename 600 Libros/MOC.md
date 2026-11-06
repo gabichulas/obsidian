@@ -21,9 +21,6 @@ actions:
     openIfAlreadyExists: false
 
 ```
-# Plantilla
-- [[Books]]
-
 # Libros
 ```dataview
 TABLE Fecha, Titulo, Autor
