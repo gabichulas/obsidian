@@ -2,6 +2,5 @@
   "dataview",
   "templater-obsidian",
   "obsidian-meta-bind-plugin",
-  "obsidian-plugin-toc",
-  "obsidian-git"
+  "obsidian-plugin-toc"
 ]
